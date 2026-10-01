@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Frank+Ruhl+Libre:wght@400;500;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=db37dadf">
+  <link rel="stylesheet" href="styles.css?v=52b5b287">
   <link rel="canonical" href="https://www.shalomjacobmemorial.com/about.html">
   <link rel="alternate" hreflang="he" href="he-about.html">
 </head>
@@ -97,6 +97,33 @@
     </div>
   </section>
 
+  <!-- Yahrzeit -->
+  <section id="yahrzeit" class="yahrzeit" hidden>
+    <div class="narrow center reveal">
+      <span class="eyebrow">Yahrzeit</span>
+      <h2 id="yz-date"></h2>
+      <p class="yz-next">Next yahrzeit: <b id="yz-next"></b></p>
+      <p class="lead">On the yahrzeit, we invite family, friends and Talmidim to learn Mishnayos, give Tzedakah, or dedicate a Sefer <span class="he">לעילוי נשמת</span> <span id="yz-name" dir="auto"></span>.</p>
+      <div class="hero-cta" style="justify-content:center">
+        <a href="contact.html" class="btn btn-navy" data-msg="I would like to learn or dedicate learning for Rav Shalom's yahrzeit.">Dedicate Learning</a>
+        <a href="donate.html" class="btn btn-gold">Give in His Memory</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shiurim -->
+  <section id="shiurim" class="alt">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Shiurim &amp; Hespedim</span>
+        <h2>Divrei Torah in his memory</h2>
+        <p class="lead">Shiurim, hespedim and words of remembrance about Rav Shalom <span class="he">זצ״ל</span>.</p>
+      </div>
+      <div class="shiurim" id="shiurim-list"></div>
+      <p class="center shiur-submit reveal">Have a recording of a shiur or hesped about Rav Shalom? <a href="contact.html" data-msg="I have a recording of a shiur or hesped about Rav Shalom to share.">Send it to us</a>.</p>
+    </div>
+  </section>
+
   <!-- Memories -->
   <section id="memories">
     <div class="wrap">
@@ -124,6 +151,17 @@
           <p style="color:var(--muted);margin:0">Your memory has been received and will appear here after review.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Leadership -->
+  <section id="leadership" class="leadership" hidden>
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Leadership</span>
+        <h2>The Institute’s Board</h2>
+      </div>
+      <div class="team" id="team-list"></div>
     </div>
   </section>
 
@@ -189,6 +227,6 @@
 </div>
 
 <script src="sefarim-data.js?v=8aabb9f4"></script>
-<script src="script.js?v=60c87651"></script>
+<script src="script.js?v=af041cf4"></script>
 </body>
 </html>

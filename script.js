@@ -139,6 +139,63 @@ if (memList) fetch("data/memories.json")
       : `<p class="memories-empty">${T.noMemories}</p>`;
   });
 
+// ---------- Site details: yahrzeit, board, EIN (from data/site.json) ----------
+fetch("data/site.json").then((r) => (r.ok ? r.json() : {})).catch(() => ({})).then(async (site) => {
+  const ein = document.getElementById("ein");
+  if (ein && site.ein) { ein.querySelector("span").textContent = site.ein; ein.hidden = false; }
+
+  const teamEl = document.getElementById("team-list");
+  if (teamEl && site.team?.length) {
+    teamEl.innerHTML = site.team.map((m) => `<div class="member"><b>${esc(m.name)}</b>${m.role ? `<span>${esc(m.role)}</span>` : ""}</div>`).join("");
+    document.getElementById("leadership").hidden = false;
+  }
+
+  const yz = site.yahrzeit || {}, yzEl = document.getElementById("yahrzeit");
+  if (!yzEl || !yz.hebrew) return;
+  document.getElementById("yz-date").textContent = yz.hebrew;
+  document.getElementById("yz-name").textContent = yz.nishmas || (HE ? "הרב שלום זצ״ל" : "Rav Shalom זצ״ל");
+  yzEl.hidden = false;
+  // Next civil date of the yahrzeit, via the Hebcal date converter
+  const next = document.querySelector(".yz-next");
+  if (!yz.hebcal_month || !yz.day) return (next.hidden = true);
+  try {
+    const t = new Date(), iso = t.toISOString().slice(0, 10);
+    const today = await (await fetch(`https://www.hebcal.com/converter?cfg=json&date=${iso}&g2h=1&strict=1`)).json();
+    for (const hy of [today.hy, today.hy + 1]) {
+      const g = await (await fetch(`https://www.hebcal.com/converter?cfg=json&hy=${hy}&hm=${yz.hebcal_month}&hd=${yz.day}&h2g=1&strict=1`)).json();
+      const d = new Date(g.gy, g.gm - 1, g.gd);
+      if (d >= new Date(t.getFullYear(), t.getMonth(), t.getDate())) {
+        document.getElementById("yz-next").textContent = d.toLocaleDateString(HE ? "he-IL" : "en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
+        return;
+      }
+    }
+    next.hidden = true;
+  } catch { next.hidden = true; }
+});
+
+// ---------- Shiurim & hespedim (from data/shiurim.json) ----------
+const shiurimEl = document.getElementById("shiurim-list");
+const ytId = (u) => (String(u).match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/) || [, /^[\w-]{11}$/.test(u) ? u : ""])[1];
+if (shiurimEl) fetch("data/shiurim.json").then((r) => (r.ok ? r.json() : [])).catch(() => []).then((items) => {
+  if (!items.length) {
+    shiurimEl.innerHTML = `<p class="memories-empty">${HE ? "שיעורים והספדים יתווספו כאן בקרוב." : "Shiurim and hespedim will be added here soon."}</p>`;
+    return;
+  }
+  shiurimEl.innerHTML = items.map((x) => {
+    const id = x.youtube && ytId(x.youtube);
+    const media = id
+      ? `<button class="yt" data-yt="${id}" aria-label="${HE ? "הפעלה" : "Play"}: ${esc(x.title)}"><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="" loading="lazy"><span class="play"></span></button>`
+      : x.audio ? `<audio controls preload="none" src="${esc(x.audio)}"></audio>` : "";
+    const meta = [x.speaker, x.date].filter(Boolean).map(esc).join(" · ");
+    return `<article class="shiur reveal in">${media}<div><h3>${esc(x.title)}</h3>${meta ? `<p>${meta}</p>` : ""}${x.link ? `<a href="${esc(x.link)}" target="_blank" rel="noopener">${HE ? "להאזנה ←" : "Listen →"}</a>` : ""}</div></article>`;
+  }).join("");
+});
+document.addEventListener("click", (e) => {
+  const b = e.target.closest("button.yt");
+  if (!b) return;
+  b.outerHTML = `<div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/${b.dataset.yt}?autoplay=1&rel=0" title="YouTube video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>`;
+});
+
 // ---------- Fundraising + donate ----------
 if (FUNDRAISING.raised && document.getElementById("progress")) {
   const prog = document.getElementById("progress");

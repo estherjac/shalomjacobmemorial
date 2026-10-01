@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Frank+Ruhl+Libre:wght@400;500;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=db37dadf">
+  <link rel="stylesheet" href="styles.css?v=52b5b287">
   <link rel="canonical" href="https://www.shalomjacobmemorial.com/he-about.html">
   <link rel="alternate" hreflang="en" href="about.html">
 </head>
@@ -97,6 +97,33 @@
     </div>
   </section>
 
+  <!-- Yahrzeit -->
+  <section id="yahrzeit" class="yahrzeit" hidden>
+    <div class="narrow center reveal">
+      <span class="eyebrow">יום הזיכרון</span>
+      <h2 id="yz-date"></h2>
+      <p class="yz-next">היארצייט הבא: <b id="yz-next"></b></p>
+      <p class="lead">ביום היארצייט אנו מזמינים את המשפחה, הידידים והתלמידים ללמוד משניות, לתת צדקה או להקדיש ספר לעילוי נשמת <span id="yz-name" dir="auto"></span>.</p>
+      <div class="hero-cta" style="justify-content:center">
+        <a href="he-contact.html" class="btn btn-navy" data-msg="ברצוני ללמוד או להקדיש לימוד ליום היארצייט של הרב שלום.">הקדשת לימוד</a>
+        <a href="he-donate.html" class="btn btn-gold">תרומה לזכרו</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shiurim -->
+  <section id="shiurim" class="alt">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <span class="eyebrow">שיעורים והספדים</span>
+        <h2>דברי תורה לזכרו</h2>
+        <p class="lead">שיעורים, הספדים ודברי זיכרון על הרב שלום זצ״ל.</p>
+      </div>
+      <div class="shiurim" id="shiurim-list"></div>
+      <p class="center shiur-submit reveal">יש לכם הקלטה של שיעור או הספד על הרב שלום? <a href="he-contact.html" data-msg="יש לי הקלטה של שיעור או הספד על הרב שלום לשתף.">שלחו לנו</a>.</p>
+    </div>
+  </section>
+
   <!-- Memories -->
   <section id="memories">
     <div class="wrap">
@@ -124,6 +151,17 @@
           <p style="color:var(--muted);margin:0">הזיכרון התקבל ויפורסם לאחר עיון.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Leadership -->
+  <section id="leadership" class="leadership" hidden>
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <span class="eyebrow">הנהלה</span>
+        <h2>הנהלת המכון</h2>
+      </div>
+      <div class="team" id="team-list"></div>
     </div>
   </section>
 
@@ -189,6 +227,6 @@
 </div>
 
 <script src="sefarim-data.js?v=8aabb9f4"></script>
-<script src="script.js?v=60c87651"></script>
+<script src="script.js?v=af041cf4"></script>
 </body>
 </html>

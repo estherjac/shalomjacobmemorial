@@ -31,7 +31,7 @@ def stamp(html_text, prefix=""):
 
 PAGES = {  # key: (sections, banner image)
     "home": (["Hero", "Stats", "Home intro", "Home projects", "Sefer of the Week + newsletter", "Home donate"], None),
-    "about": (["Life & Legacy", "Memories"], "tint-shelves.jpg"),
+    "about": (["Life & Legacy", "Yahrzeit", "Shiurim", "Memories", "Leadership"], "tint-shelves.jpg"),
     "library": (["Library Project", "Gallery"], "library-01.jpg"),
     "publishing": (["Publishing Project", "Haskamos", "Works in Progress"], "library-05.jpg"),
     "donate": (["Support"], None),
@@ -65,7 +65,7 @@ TEXT = {
 }
 # where each in-page anchor now lives: id -> (page, keep fragment?)
 ANCHORS = {"top": ("home", False), "intro": ("home", True), "newsletter": ("home", True),
-           "legacy": ("about", False), "memories": ("about", True),
+           "legacy": ("about", False), "memories": ("about", True), "yahrzeit": ("about", True), "shiurim": ("about", True), "leadership": ("about", True),
            "library": ("library", False), "gallery": ("library", True),
            "publishing": ("publishing", False), "haskamos": ("publishing", True), "works": ("publishing", True),
            "support": ("donate", False), "contact": ("contact", False)}

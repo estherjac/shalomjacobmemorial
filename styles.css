@@ -549,3 +549,38 @@ html[dir="rtl"] .a11y-label { letter-spacing: 0; font-size: .85rem; }
 @media (max-width: 520px) { .a11y { bottom: 12px; inset-inline-start: 12px; } }
 
 
+
+[hidden] { display: none !important; }
+
+/* ---------- Yahrzeit ---------- */
+.yahrzeit { background: var(--paper); border-block: 1px solid var(--line); }
+.yahrzeit h2 { font-family: var(--hebrew); font-weight: 700; font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: .3em; }
+.yz-next { color: var(--muted); font-size: 1.05rem; }
+.yz-next b { color: var(--navy); }
+
+/* ---------- Shiurim ---------- */
+.shiurim { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+.shiur { background: var(--parchment); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.shiur > div { padding: 20px 22px 22px; }
+.shiur h3 { font-size: 1.35rem; margin-bottom: .2em; }
+.shiur p { margin: 0 0 .6em; color: var(--muted); font-size: .95rem; }
+.shiur a { color: var(--navy); font-weight: 600; text-decoration: none; }
+.shiur audio { width: calc(100% - 40px); margin: 20px 20px 0; }
+.yt { position: relative; display: block; width: 100%; aspect-ratio: 16/9; border: 0; padding: 0; background: #000; cursor: pointer; }
+.yt img { width: 100%; height: 100%; object-fit: cover; opacity: .9; }
+.yt iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.yt .play { position: absolute; inset: 0; margin: auto; width: 64px; height: 64px; border-radius: 50%; background: rgba(12,22,49,.85); border: 2px solid var(--gold); }
+.yt .play::after { content: ""; position: absolute; left: 25px; top: 19px; border-style: solid; border-width: 13px 0 13px 20px; border-color: transparent transparent transparent #fff; }
+.yt:hover .play { background: var(--navy); }
+.shiur-submit { margin-top: 30px; color: var(--muted); }
+.shiur-submit a { color: var(--navy); font-weight: 600; }
+
+/* ---------- Leadership ---------- */
+.team { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; }
+.member { min-width: 220px; text-align: center; padding: 22px 26px; background: var(--paper); border: 1px solid var(--line); border-top: 3px solid var(--gold); border-radius: var(--radius); }
+.member b { display: block; font: 600 1.3rem/1.2 var(--display); color: var(--navy); }
+html[dir="rtl"] .member b { font-family: var(--hebrew); font-weight: 700; }
+.member span { display: block; margin-top: 4px; color: var(--muted); font-size: .92rem; }
+
+/* ---------- EIN ---------- */
+.give-card .ein { margin-top: 4px; }

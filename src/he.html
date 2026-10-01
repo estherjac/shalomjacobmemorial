@@ -330,6 +330,7 @@
         <a href="mailto:shalomjacobmemorial@gmail.com?subject=Donation%20to%20the%20Shalom%20Jacob%20Memorial%20Institute" class="btn btn-gold" id="donate-btn">לתרומה</a>
         <a href="#contact" class="btn btn-navy" style="background:transparent;color:var(--navy);border-color:var(--line)">להקדשת ספר או פרויקט</a>
         <small>כל התרומות מוכרות לניכוי מס בארה״ב.</small>
+        <small class="ein" id="ein" hidden>מספר מזהה למס (EIN): <span dir="ltr"></span></small>
       </div>
     </div>
     <div class="wrap tiers">
@@ -431,6 +432,43 @@
         <p class="lead" style="margin:0">כל תרומה, המוכרת לניכוי מס בארה״ב, מסייעת לשמר את ספרי הרב שלום ולהביא לדפוס את עבודתו שלא הושלמה.</p>
       </div>
       <div class="hero-cta" style="margin:0"><a href="#support" class="btn btn-gold">לתרומה</a><a href="#support" class="btn btn-navy">אפשרויות הקדשה</a></div>
+    </div>
+  </section>
+  <!-- Yahrzeit -->
+  <section id="yahrzeit" class="yahrzeit" hidden>
+    <div class="narrow center reveal">
+      <span class="eyebrow">יום הזיכרון</span>
+      <h2 id="yz-date"></h2>
+      <p class="yz-next">היארצייט הבא: <b id="yz-next"></b></p>
+      <p class="lead">ביום היארצייט אנו מזמינים את המשפחה, הידידים והתלמידים ללמוד משניות, לתת צדקה או להקדיש ספר לעילוי נשמת <span id="yz-name" dir="auto"></span>.</p>
+      <div class="hero-cta" style="justify-content:center">
+        <a href="#contact" class="btn btn-navy" data-msg="ברצוני ללמוד או להקדיש לימוד ליום היארצייט של הרב שלום.">הקדשת לימוד</a>
+        <a href="#support" class="btn btn-gold">תרומה לזכרו</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shiurim -->
+  <section id="shiurim" class="alt">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <span class="eyebrow">שיעורים והספדים</span>
+        <h2>דברי תורה לזכרו</h2>
+        <p class="lead">שיעורים, הספדים ודברי זיכרון על הרב שלום זצ״ל.</p>
+      </div>
+      <div class="shiurim" id="shiurim-list"></div>
+      <p class="center shiur-submit reveal">יש לכם הקלטה של שיעור או הספד על הרב שלום? <a href="#contact" data-msg="יש לי הקלטה של שיעור או הספד על הרב שלום לשתף.">שלחו לנו</a>.</p>
+    </div>
+  </section>
+
+  <!-- Leadership -->
+  <section id="leadership" class="leadership" hidden>
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <span class="eyebrow">הנהלה</span>
+        <h2>הנהלת המכון</h2>
+      </div>
+      <div class="team" id="team-list"></div>
     </div>
   </section>
 </main>
