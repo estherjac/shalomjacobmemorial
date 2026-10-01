@@ -29,4 +29,5 @@ Shiurim and hespedim shown on the About page. Each entry can have a YouTube link
   (months: Nisan, Iyyar, Sivan, Tamuz, Av, Elul, Tishrei, Cheshvan, Kislev, Tevet, Shvat, Adar, Adar1, Adar2).
   `nishmas` is optional, e.g. "הרב שלום בן ... זצ״ל". The section stays hidden until `hebrew` is filled in.
 - **ein**: the tax ID shown on the Donate page (hidden while empty).
+- **instagram_feed**: the JSON feed URL from behold.so (looks like `https://feeds.behold.so/XXXX`). Shows the latest 8 posts with their captions on the home page and Library page. Leave empty to show only the Follow button.
 - **team**: board members shown on the About page, e.g. `[{ "name": "...", "role": "President" }]` (hidden while empty).

@@ -30,9 +30,9 @@ def stamp(html_text, prefix=""):
     return html_text
 
 PAGES = {  # key: (sections, banner image)
-    "home": (["Hero", "Stats", "Home intro", "Home projects", "Sefer of the Week + newsletter", "Home donate"], None),
+    "home": (["Hero", "Stats", "Home intro", "Home projects", "Sefer of the Week + newsletter", "Instagram", "Home donate"], None),
     "about": (["Life & Legacy", "Yahrzeit", "Shiurim", "Memories", "Leadership"], "tint-shelves.jpg"),
-    "library": (["Library Project", "Gallery"], "library-01.jpg"),
+    "library": (["Library Project", "Gallery", "Instagram"], "library-01.jpg"),
     "publishing": (["Publishing Project", "Haskamos", "Works in Progress"], "library-05.jpg"),
     "sefarim": (["Sefarim"], "library-07.jpg"),
     "donate": (["Support"], None),

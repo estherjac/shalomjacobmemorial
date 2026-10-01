@@ -209,6 +209,28 @@ fetch("data/site.json").then((r) => (r.ok ? r.json() : {})).catch(() => ({})).th
   } catch { next.hidden = true; }
 });
 
+// ---------- Instagram feed (Behold.so JSON feed URL in data/site.json → "instagram_feed") ----------
+const igEl = document.getElementById("ig-feed");
+if (igEl) fetch("data/site.json").then((r) => (r.ok ? r.json() : {})).catch(() => ({})).then(async ({ instagram_feed }) => {
+  const section = document.getElementById("instagram");
+  if (!instagram_feed) { section.classList.add("ig-empty"); return; }
+  try {
+    const data = await (await fetch(instagram_feed)).json();
+    const posts = (Array.isArray(data) ? data : data.posts || []).slice(0, 8);
+    if (!posts.length) throw new Error("empty");
+    igEl.innerHTML = posts.map((p) => {
+      const img = p.sizes?.medium?.mediaUrl || (p.mediaType === "VIDEO" ? p.thumbnailUrl : p.mediaUrl) || p.thumbnailUrl;
+      const text = (p.prunedCaption || p.caption || "").replace(/#\S+/g, "").trim();
+      const short = text.length > 150 ? text.slice(0, 150).replace(/\s+\S*$/, "") + "…" : text;
+      return `<a class="ig-post reveal in" href="${esc(p.permalink)}" target="_blank" rel="noopener">
+        <div class="ig-img"><img src="${esc(img)}" alt="${esc(short.slice(0, 90))}" loading="lazy"></div>
+        <p dir="auto">${esc(short)}</p>
+        <span class="ig-more">${HE ? "לפוסט המלא ←" : "Read on Instagram →"}</span>
+      </a>`;
+    }).join("");
+  } catch { section.classList.add("ig-empty"); }
+});
+
 // ---------- Shiurim & hespedim (from data/shiurim.json) ----------
 const shiurimEl = document.getElementById("shiurim-list");
 const ytId = (u) => (String(u).match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/) || [, /^[\w-]{11}$/.test(u) ? u : ""])[1];

@@ -8,6 +8,7 @@ Fill these in, then run `python3 build.py` and push (see `data/README.md`).
 - [ ] **EIN (tax ID)** → `data/site.json`
 - [ ] **Shiurim & hespedim**: YouTube links or audio files → `data/shiurim.json`
 - [ ] **Amount raised so far**: turns on the progress bar → `FUNDRAISING.raised` in `script.js`
+- [ ] **Instagram feed**: connect @shalom_jacob_memorial_library at behold.so (free), create a JSON feed, paste its URL into `instagram_feed` in `data/site.json`
 
 ## Before announcing the site
 - [ ] **Donation link** (Donorbox, Charidy, PayPal…) → `DONATE_URL` in `script.js`
