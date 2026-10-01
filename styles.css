@@ -146,13 +146,13 @@ section { padding: 110px 0; }
 
 /* ---------- Legacy ---------- */
 .legacy-intro { display: grid; grid-template-columns: 5fr 7fr; gap: 64px; align-items: center; margin-bottom: 90px; }
-.portrait { position: relative; }
-.portrait img { border-radius: var(--radius); box-shadow: var(--shadow); aspect-ratio: 4/5; object-fit: cover; width: 100%; }
-.portrait::before {
-  content: ""; position: absolute; inset: 18px -18px -18px 18px; border: 1.5px solid var(--gold);
-  border-radius: var(--radius); z-index: -1;
+.portrait { position: relative; margin: 0; }
+.portrait img {
+  width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: top;
+  border-radius: 6px; box-shadow: 0 2px 6px rgba(12,22,49,.08), 0 30px 60px -28px rgba(12,22,49,.45);
 }
-.portrait figcaption { margin-top: 30px; text-align: center; font-family: var(--display); font-size: 1.25rem; color: var(--navy); }
+.portrait figcaption { margin-top: 22px; text-align: center; font-family: var(--display); font-size: 1.3rem; color: var(--navy); }
+.portrait figcaption::before { content: ""; display: block; width: 36px; height: 2px; background: var(--gold); margin: 0 auto 14px; }
 .portrait figcaption .he { color: var(--gold); }
 blockquote.quote {
   margin: 1.6em 0 0; padding: 1.2em 1.4em; border-inline-start: 3px solid var(--gold);
@@ -458,7 +458,6 @@ html[dir="rtl"] .eyebrow { letter-spacing: .04em; font-size: .95rem; }
 html[dir="rtl"] .stat span, html[dir="rtl"] .goal span { letter-spacing: 0; font-size: .95rem; }
 html[dir="rtl"] .hero::after { background: linear-gradient(260deg, rgba(12,22,49,.94) 0%, rgba(12,22,49,.78) 45%, rgba(12,22,49,.35) 100%); }
 html[dir="rtl"] .hero .bsd { right: auto; left: 22px; }
-html[dir="rtl"] .portrait::before { inset: 18px 18px -18px -18px; }
 html[dir="rtl"] .checklist li::before { left: auto; right: 0; }
 html[dir="rtl"] blockquote.quote { border-radius: 10px 0 0 10px; }
 html[dir="rtl"] .lb-close { right: auto; left: 18px; }
