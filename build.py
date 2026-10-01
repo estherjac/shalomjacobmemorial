@@ -41,12 +41,12 @@ PAGES = {  # key: (sections, banner image)
 TEXT = {
     "en": {
         "file": {"home": "index.html", "about": "about.html", "library": "library.html", "publishing": "publishing.html", "sefarim": "sefarim.html", "donate": "donate.html", "contact": "contact.html"},
-        "nav": [("about", "About"), ("library", "Library Project"), ("publishing", "Publishing Project"), ("sefarim", "Sefarim"), ("contact", "Contact")],
+        "nav": [("about", "About"), ("library", "Library Project"), ("sefarim", "Sefarim"), ("publishing", "Continuing His Work"), ("contact", "Contact")],
         "donate": "Donate", "other": ("עברית", "he"), "site": "Shalom Jacob Memorial Institute",
         "banner": {
             "about": ("Life &amp; Legacy", "Rav Shalom Jacob <span class=\"he\">זצ״ל</span> — Talmid Chacham, <span class=\"he\">איש הספר</span>, and devoted servant of Torah."),
             "library": ("The Library Project", "Organizing, archiving and digitizing a historic collection of 50,000 Sefarim."),
-            "publishing": ("The Publishing Project", "The Sefarim Rav Shalom brought back to life, the Haskamos they received, and the work still to come."),
+            "publishing": ("Continuing His Work", "Carrying Rav Shalom’s publishing mission forward — the Haskamos his Sefarim received, and the work he left unfinished."),
             "sefarim": ("The Sefarim", "Every Sefer Rav Shalom <span class=\"he\">זצ״ל</span> brought back into print — browse by topic, or search by title, author or subject."),
             "donate": ("Support the Institute", ""),
             "contact": ("Contact Us", "Questions, sponsorships, or a memory to share — we’d love to hear from you."),
@@ -54,12 +54,12 @@ TEXT = {
     },
     "he": {
         "file": {"home": "he.html", "about": "he-about.html", "library": "he-library.html", "publishing": "he-publishing.html", "sefarim": "he-sefarim.html", "donate": "he-donate.html", "contact": "he-contact.html"},
-        "nav": [("about", "חייו ומורשתו"), ("library", "פרויקט הספרייה"), ("publishing", "ההוצאה לאור"), ("sefarim", "ספרים"), ("contact", "צור קשר")],
+        "nav": [("about", "חייו ומורשתו"), ("library", "פרויקט הספרייה"), ("sefarim", "ספרים"), ("publishing", "המשך מפעלו"), ("contact", "צור קשר")],
         "donate": "תרומה", "other": ("English", "en"), "site": "מכון לזכר הרב שלום דזשייקאב זצ״ל",
         "banner": {
             "about": ("חייו ומורשתו", "הרב שלום דזשייקאב זצ״ל — תלמיד חכם, איש הספר, ועובד ה׳ במסירות."),
             "library": ("פרויקט הספרייה", "סידור, ארכוב ודיגיטציה של אוסף היסטורי של 50,000 ספרים."),
-            "publishing": ("פרויקט ההוצאה לאור", "הספרים שהרב שלום החזיר לחיים, ההסכמות שקיבלו, והמלאכה שעוד לפנינו."),
+            "publishing": ("המשך מפעלו", "ממשיכים את שליחותו של הרב שלום בהוצאה לאור — ההסכמות שקיבלו ספריו, והמלאכה שלא הספיק להשלים."),
             "sefarim": ("הספרים", "כל הספרים שהרב שלום זצ״ל החזיר לדפוס — עיינו לפי נושא, או חפשו לפי שם, מחבר או ענין."),
             "donate": ("תמיכה במכון", ""),
             "contact": ("צור קשר", "שאלות, הקדשות, או זיכרון לשתף — נשמח לשמוע מכם."),
