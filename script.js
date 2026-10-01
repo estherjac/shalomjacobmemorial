@@ -243,7 +243,10 @@ const shiurimEl = document.getElementById("shiurim-list");
 const ytId = (u) => (String(u).match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/) || [, /^[\w-]{11}$/.test(u) ? u : ""])[1];
 if (shiurimEl) fetch("data/shiurim.json").then((r) => (r.ok ? r.json() : [])).catch(() => []).then((items) => {
   if (!items.length) {
-    shiurimEl.innerHTML = `<p class="memories-empty">${HE ? "שיעורים והספדים יתווספו כאן בקרוב." : "Shiurim and hespedim will be added here soon."}</p>`;
+    shiurimEl.innerHTML = Array.from({ length: 3 }, () => `<article class="shiur shiur-placeholder" aria-hidden="true">
+      <div class="yt"><span class="play"></span></div>
+      <div><span class="line"></span><span class="line short"></span><span class="soon">${HE ? "בקרוב" : "Coming soon"}</span></div>
+    </article>`).join("");
     return;
   }
   shiurimEl.innerHTML = items.map((x) => {

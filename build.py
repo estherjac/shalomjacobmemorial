@@ -126,7 +126,8 @@ def build_pages(lang):
             body += (f'  <section class="page-banner" style="--banner:url(\'images/{banner_img}\')">\n    <div class="wrap">\n'
                      f'      <h1>{bt}</h1>\n' + (f"      <p>{bs}</p>\n" if bs else "") + "    </div>\n  </section>\n\n")
         body += "\n".join(f"  <!-- {n} -->\n" + sections[n] for n in names)
-        page = h + '<main id="top">\n' + body + "\n</main>\n" + lang_float + tail
+        h = h.replace("    </ul>\n  </nav>", "    </ul>\n    " + lang_float.replace("\n", "\n    ").rstrip() + "\n  </nav>", 1)
+        page = h + '<main id="top">\n' + body + "\n</main>\n" + tail
         page = re.sub(r'href="#([\w-]+)"', fix, page)
         (ROOT / fname).write_text(stamp(page))
     return list(t["file"].values())
@@ -165,7 +166,7 @@ HEAD = """<!doctype html>
   <nav class="wrap nav" aria-label="Main">
     <a href="../index.html" class="brand"><img src="../images/logo.jpg" alt="The Shalom Jacob Memorial Institute"></a>
     <div style="display:flex;gap:10px;align-items:center">
-      <a href="../sefarim.html" class="btn btn-outline">All Sefarim</a>
+      <a href="../sefarim.html" class="btn btn-outline hide-phone">All Sefarim</a>
       <a href="../donate.html" class="btn btn-gold">Donate</a>
     </div>
   </nav>
@@ -229,7 +230,7 @@ for i, s in enumerate(sefarim):
       <div class="sefer-grid">
         <div>{cover}</div>
         <div>
-          <span class="eyebrow">Published by Rav Shalom Jacob <span class="he">זצ״ל</span></span>
+          <span class="eyebrow"><span>Published by Rav Shalom Jacob <span class="he">זצ״ל</span></span></span>
           <h1 class="he sefer-title" lang="he">{e(s['title'])}</h1>
           <p class="sefer-en">{e(s['en'])}</p>
           <dl class="sefer-facts">
