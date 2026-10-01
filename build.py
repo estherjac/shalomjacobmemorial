@@ -83,8 +83,13 @@ def build_pages(lang):
         nav = "\n".join(
             f'      <li><a href="{t["file"][k]}"{current if k == key else ""}>{label}</a></li>'
             for k, label in t["nav"])
-        nav += (f'\n      <li><a href="{TEXT[other_lang]["file"][key]}" class="lang-toggle" lang="{other_lang}" hreflang="{other_lang}">{other_label}</a></li>'
-                f'\n      <li><a href="{t["file"]["donate"]}" class="btn btn-gold">{t["donate"]}</a></li>')
+        nav += f'\n      <li><a href="{t["file"]["donate"]}" class="btn btn-gold">{t["donate"]}</a></li>'
+        switch_label = "View this page in Hebrew" if lang == "en" else "View this page in English"
+        lang_float = (f'<a class="lang-float" href="{TEXT[other_lang]["file"][key]}" lang="{other_lang}" hreflang="{other_lang}" '
+                      f'aria-label="{switch_label}" title="{switch_label}">'
+                      '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">'
+                      '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>'
+                      f'<span>{other_label}</span></a>\n')
         h = re.sub(r'(<ul class="nav-links" id="nav-links">\n).*?(\n    </ul>)', lambda m: m.group(1) + nav + m.group(2), head, flags=re.S)
         title = t["site"] if key == "home" else f'{re.sub("<[^>]+>", "", t["banner"][key][0]).replace("&amp;", "&")} · {t["site"]}'
         h = re.sub(r"<title>.*?</title>", f"<title>{title}</title>", h)
@@ -97,7 +102,7 @@ def build_pages(lang):
             body += (f'  <section class="page-banner" style="--banner:url(\'images/{banner_img}\')">\n    <div class="wrap">\n'
                      f'      <h1>{bt}</h1>\n' + (f"      <p>{bs}</p>\n" if bs else "") + "    </div>\n  </section>\n\n")
         body += "\n".join(f"  <!-- {n} -->\n" + sections[n] for n in names)
-        page = h + '<main id="top">\n' + body + "\n</main>" + tail
+        page = h + '<main id="top">\n' + body + "\n</main>\n" + lang_float + tail
         page = re.sub(r'href="#([\w-]+)"', fix, page)
         (ROOT / fname).write_text(page)
     return list(t["file"].values())

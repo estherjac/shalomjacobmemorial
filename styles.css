@@ -516,3 +516,19 @@ html[dir="rtl"] .project .num { letter-spacing: 0; font-size: .95rem; }
 .cta-inner h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: .2em; }
 @media (max-width: 640px) { .cta-inner { padding: 30px 22px; } }
 .nav-links a.current { border-color: var(--gold); color: var(--navy); }
+
+/* ---------- Floating language switch ---------- */
+.lang-float {
+  position: fixed; bottom: 20px; inset-inline-start: 20px; z-index: 60;
+  display: inline-flex; align-items: center; gap: 0; height: 48px; min-width: 48px; padding: 0 15px;
+  border-radius: 999px; background: var(--navy); color: #fff; text-decoration: none;
+  box-shadow: 0 10px 24px -8px rgba(12,22,49,.55); border: 1.5px solid var(--gold);
+  font: 600 .95rem/1 var(--body); transition: gap .25s, background .2s;
+}
+.lang-float span { max-width: 0; overflow: hidden; white-space: nowrap; transition: max-width .3s; }
+.lang-float[lang="he"] span { font-family: var(--hebrew); }
+.lang-float:hover, .lang-float:focus-visible { background: var(--navy-deep); gap: 8px; }
+.lang-float:hover span, .lang-float:focus-visible span { max-width: 90px; }
+.lang-float:focus-visible { outline: 3px solid var(--gold-soft); outline-offset: 3px; }
+@media (hover: none) { .lang-float { gap: 8px; } .lang-float span { max-width: 90px; } }
+@media print { .lang-float { display: none; } }
