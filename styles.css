@@ -727,3 +727,4 @@ html:not([dir="rtl"]) .book .he { text-align: left; }
 .shiur-placeholder .soon { margin-top: 4px; font-size: .85rem; font-weight: 600; color: var(--muted); }
 .shiur-submit { margin-top: 40px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
 .shiur-submit p { margin: 0; color: var(--muted); }
+#memories .section-head { margin-bottom: 40px; }

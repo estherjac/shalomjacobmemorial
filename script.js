@@ -172,7 +172,8 @@ if (memList) fetch("data/memories.json")
   .then((items) => {
     memList.innerHTML = items.length
       ? items.map((m) => `<article class="memory reveal in"><p>${esc(m.text)}</p><footer><b>${esc(m.name)}</b>${m.relationship ? ` · ${esc(m.relationship)}` : ""}</footer></article>`).join("")
-      : `<p class="memories-empty">${T.noMemories}</p>`;
+      : "";
+    memList.hidden = !items.length;
   });
 
 // ---------- Site details: yahrzeit, board, EIN (from data/site.json) ----------
