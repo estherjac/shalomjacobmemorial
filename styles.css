@@ -428,6 +428,7 @@ html[dir="rtl"] .memory::before { left: auto; right: 20px; content: "”"; }
 .sefer-grid { display: grid; grid-template-columns: 340px 1fr; gap: 60px; align-items: start; }
 .sefer-cover { width: 100%; border-radius: 8px; box-shadow: 0 30px 50px -24px rgba(12,22,49,.6); background: #fff; }
 .sefer-cover-blank { aspect-ratio: 3/4; background: linear-gradient(135deg, var(--navy), var(--navy-deep)); display: grid; place-content: center; text-align: center; color: var(--gold-soft); border: 10px solid var(--navy); outline: 1.5px solid var(--gold); outline-offset: -22px; padding: 30px; }
+.sefer-cover-blank span, .sefer-cover-blank b { display: block; }
 .sefer-cover-blank span { font-size: 1.1rem; }
 .sefer-cover-blank b { font-size: 2.1rem; line-height: 1.2; color: #fff; }
 .sefer-title { font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 700; margin-bottom: .1em; }
@@ -461,3 +462,30 @@ html[dir="rtl"] .portrait::before { inset: 18px 18px -18px -18px; }
 html[dir="rtl"] .checklist li::before { left: auto; right: 0; }
 html[dir="rtl"] blockquote.quote { border-radius: 10px 0 0 10px; }
 html[dir="rtl"] .lb-close { right: auto; left: 18px; }
+
+/* ---------- Sefer of the Week + newsletter ---------- */
+.weekly { background: linear-gradient(135deg, var(--navy), var(--navy-deep)); color: #fff; }
+.weekly h2 { color: #fff; }
+.weekly .lead { color: rgba(255,255,255,.8); }
+.weekly-grid { display: grid; grid-template-columns: 5fr 6fr; gap: 70px; align-items: center; }
+.weekly-card { display: grid; grid-template-columns: 170px 1fr; gap: 28px; align-items: center; background: rgba(255,255,255,.05); border: 1px solid rgba(194,161,77,.4); border-radius: var(--radius); padding: 26px; }
+.weekly-cover img, .weekly-cover .sefer-cover-blank { display: block; width: 100%; border-radius: 6px; box-shadow: 0 18px 30px -12px rgba(0,0,0,.6); transition: transform .25s; }
+.weekly-cover img { background: #fff; }
+.weekly-cover { text-decoration: none; }
+html:not([dir="rtl"]) .weekly-card > div .he { text-align: left; }
+.weekly-cover .sefer-cover-blank { border-width: 6px; outline-offset: -14px; padding: 14px; border-color: var(--navy-deep); background: linear-gradient(135deg, #1e3366, var(--navy-deep)); }
+.weekly-cover .sefer-cover-blank b { font-size: 1.3rem; }
+.weekly-cover:hover img, .weekly-cover:hover .sefer-cover-blank { transform: translateY(-4px) rotate(-1deg); }
+.weekly-title { color: #fff; font-size: 2rem; margin: 0; }
+.weekly-en { font-family: var(--display); font-size: 1.15rem; color: var(--gold-soft); margin: .2em 0 .6em; }
+.weekly-meta { color: rgba(255,255,255,.75); font-size: 1rem; line-height: 1.6; }
+.weekly-link { color: var(--gold-soft); font-weight: 600; text-decoration: none; font-size: .95rem; }
+.weekly-link:hover { color: #fff; }
+.newsletter-form { background: transparent; border: 0; box-shadow: none; padding: 0; margin-top: 10px; }
+.newsletter-form label { color: rgba(255,255,255,.85); }
+.newsletter-form input { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.2); color: #fff; }
+.newsletter-form input:focus { background: rgba(255,255,255,.12); }
+.newsletter-form .form-note { text-align: start; color: rgba(255,255,255,.8); }
+#newsletter-success { margin-top: 10px; }
+@media (max-width: 900px) { .weekly-grid { grid-template-columns: 1fr; gap: 40px; } }
+@media (max-width: 520px) { .weekly-card { grid-template-columns: 110px 1fr; gap: 18px; padding: 18px; } .weekly-title { font-size: 1.5rem; } }

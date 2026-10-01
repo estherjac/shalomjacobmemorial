@@ -197,6 +197,35 @@
     </div>
   </section>
 
+  <!-- Sefer of the Week + newsletter -->
+  <section id="newsletter" class="weekly">
+    <div class="wrap weekly-grid">
+      <div class="reveal">
+        <span class="eyebrow">ספר השבוע</span>
+        <div class="weekly-card" id="weekly-sefer"></div>
+      </div>
+      <div class="reveal">
+        <h2>קבלו את ספר השבוע</h2>
+        <p class="lead">בכל שבוע אנו מציגים אחד מהספרים שהרב שלום זצ״ל החזיר לחיים — מחברו, סיפורו וטעימה מתורתו. הירשמו לקבלו בדוא״ל, יחד עם עדכונים על פרויקט הספרייה ופרויקט ההוצאה לאור.</p>
+        <form class="form newsletter-form" id="newsletter-form" data-kind="newsletter" novalidate>
+          <div class="form-row">
+            <label>שם<input name="name" autocomplete="name" required></label>
+            <label>דוא״ל<input name="email" type="email" autocomplete="email" required dir="ltr"></label>
+          </div>
+          <input type="hidden" name="list" value="Sefer of the Week (Hebrew page)">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+          <button type="submit" class="btn btn-gold">הרשמה</button>
+          <p class="form-note" role="status"></p>
+        </form>
+        <div class="form success" id="newsletter-success" hidden>
+          <div class="check">✓</div>
+          <h3>נרשמתם בהצלחה</h3>
+          <p style="color:var(--muted);margin:0">ספר השבוע יגיע לתיבת הדוא״ל שלכם.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Haskamos -->
   <section id="haskamos" class="alt">
     <div class="wrap">
@@ -375,6 +404,7 @@
           <li><a href="#haskamos">הסכמות</a></li>
           <li><a href="#works">עבודות בתהליך</a></li>
           <li><a href="#memories">זכרונות</a></li>
+          <li><a href="#newsletter">ספר השבוע</a></li>
           <li><a href="index.html" lang="en">English</a></li>
         </ul>
       </div>
