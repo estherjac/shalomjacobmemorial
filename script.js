@@ -41,21 +41,10 @@ links.addEventListener("click", (e) => {
   if (e.target.closest("a")) links.classList.remove("open");
 });
 
-// ---------- Active nav link ----------
-const navMap = new Map([...links.querySelectorAll('a[href^="#"]:not(.btn)')].map((a) => [a.getAttribute("href").slice(1), a]));
-const navObserver = new IntersectionObserver(
-  (entries) => entries.forEach((e) => {
-    if (!e.isIntersecting) return;
-    navMap.forEach((a) => a.classList.remove("active"));
-    navMap.get(e.target.id)?.classList.add("active");
-  }),
-  { rootMargin: "-45% 0px -50% 0px" }
-);
-document.querySelectorAll("section[id]").forEach((s) => navObserver.observe(s));
-
 // ---------- Covers ----------
 const SEFARIM = window.SEFARIM || [];
-document.getElementById("covers").innerHTML = SEFARIM.filter((s) => s.cover)
+const coversEl = document.getElementById("covers");
+if (coversEl) coversEl.innerHTML = SEFARIM.filter((s) => s.cover)
   .map((s) => `<a href="sefarim/${s.id}.html"><img src="images/${s.cover}" alt="${esc(s.title)} — ${esc(s.en)}" loading="lazy"><span>${esc(s.title)}</span></a>`)
   .join("");
 
@@ -81,6 +70,7 @@ const body = document.getElementById("sefarim-body");
 const count = document.getElementById("sefer-count");
 const strip = (s) => s.replace(/[״׳"'\/—\-]/g, "").toLowerCase();
 function renderSefarim(q = "") {
+  if (!body) return;
   const needle = strip(q.trim());
   const rows = SEFARIM.filter((s) => !needle || strip([s.title, s.en, s.author, s.subject].join(" ")).includes(needle));
   body.innerHTML = rows.length
@@ -89,10 +79,11 @@ function renderSefarim(q = "") {
   count.innerHTML = T.count(rows.length, SEFARIM.length);
 }
 renderSefarim();
-document.getElementById("sefer-search").addEventListener("input", (e) => renderSefarim(e.target.value));
+document.getElementById("sefer-search")?.addEventListener("input", (e) => renderSefarim(e.target.value));
 
 // ---------- Gallery ----------
-document.getElementById("gallery-grid").innerHTML = Array.from({ length: 16 }, (_, i) =>
+const galleryEl = document.getElementById("gallery-grid");
+if (galleryEl) galleryEl.innerHTML = Array.from({ length: 16 }, (_, i) =>
   `<img src="images/library-${String(i + 1).padStart(2, "0")}.jpg" alt="${T.gallery}" loading="lazy" data-lightbox data-group="gallery">`
 ).join("");
 
@@ -139,7 +130,7 @@ document.addEventListener("keydown", (e) => {
 
 // ---------- Memories ----------
 const memList = document.getElementById("memories-list");
-fetch("data/memories.json")
+if (memList) fetch("data/memories.json")
   .then((r) => (r.ok ? r.json() : []))
   .catch(() => [])
   .then((items) => {
@@ -149,7 +140,7 @@ fetch("data/memories.json")
   });
 
 // ---------- Fundraising + donate ----------
-if (FUNDRAISING.raised) {
+if (FUNDRAISING.raised && document.getElementById("progress")) {
   const prog = document.getElementById("progress");
   prog.hidden = false;
   document.getElementById("raised").textContent = "$" + FUNDRAISING.raised.toLocaleString("en-US");
@@ -159,19 +150,20 @@ if (FUNDRAISING.raised) {
     obs.disconnect();
   }).observe(prog);
 }
-if (DONATE_URL) {
-  const d = document.getElementById("donate-btn");
+const donateBtn = document.getElementById("donate-btn");
+if (DONATE_URL && donateBtn) {
+  const d = donateBtn;
   d.href = DONATE_URL;
   d.target = "_blank";
   d.rel = "noopener";
 }
-// Dedication tiers prefill the contact form
-document.querySelectorAll("[data-msg]").forEach((a) =>
-  a.addEventListener("click", () => {
-    const ta = document.querySelector('#contact-form textarea[name="message"]');
-    if (ta && !ta.value) ta.value = a.dataset.msg;
-  })
-);
+// Dedication tiers open the contact page with the message filled in
+document.querySelectorAll("a[data-msg]").forEach((a) => {
+  a.href = a.getAttribute("href").split("#")[0].split("?")[0] + "?msg=" + encodeURIComponent(a.dataset.msg);
+});
+const prefill = new URLSearchParams(location.search).get("msg");
+const contactMsg = document.querySelector('#contact-form textarea[name="message"]');
+if (prefill && contactMsg && !contactMsg.value) contactMsg.value = prefill;
 
 // ---------- Reveal on scroll + count-up ----------
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;

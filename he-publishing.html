@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>פרויקט ההוצאה לאור · מכון לזכר הרב שלום דזשייקאב זצ״ל</title>
+  <meta name="description" content="מכון לזכר הרב שלום דזשייקאב זצ״ל — סידור, קטלוג ודיגיטציה של אוסף של למעלה מ-50,000 ספרים, והמשך מפעלו בהוצאה לאור של תורת הראשונים והאחרונים.">
+  <meta property="og:title" content="מכון לזכר הרב שלום דזשייקאב זצ״ל">
+  <meta property="og:description" content="פרויקט הספרייה ופרויקט ההוצאה לאור להנצחת מורשתו של הרב שלום דזשייקאב זצ״ל.">
+  <meta property="og:image" content="images/library-hero.jpg">
+  <link rel="icon" href="images/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Frank+Ruhl+Libre:wght@400;500;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="canonical" href="https://www.shalomjacobmemorial.com/he-publishing.html">
+  <link rel="alternate" hreflang="en" href="publishing.html">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="wrap nav" aria-label="ניווט ראשי">
+    <a href="he.html" class="brand"><img src="images/logo.jpg" alt="מכון לזכר הרב שלום דזשייקאב"></a>
+    <button class="menu-toggle" aria-label="פתיחת תפריט" aria-expanded="false" aria-controls="nav-links">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="he-about.html">חייו ומורשתו</a></li>
+      <li><a href="he-library.html">פרויקט הספרייה</a></li>
+      <li><a href="he-publishing.html" class="current" aria-current="page">ההוצאה לאור</a></li>
+      <li><a href="he-contact.html">צור קשר</a></li>
+      <li><a href="publishing.html" class="lang-toggle" lang="en" hreflang="en">English</a></li>
+      <li><a href="he-donate.html" class="btn btn-gold">תרומה</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="page-banner" style="--banner:url('images/library-05.jpg')">
+    <div class="wrap">
+      <h1>פרויקט ההוצאה לאור</h1>
+      <p>הספרים שהרב שלום החזיר לחיים, ההסכמות שקיבלו, והמלאכה שעוד לפנינו.</p>
+    </div>
+  </section>
+
+  <!-- Publishing Project -->
+  <section id="publishing">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <span class="eyebrow">פרויקט ההוצאה לאור</span>
+        <h2>להחיות את דברי הראשונים והאחרונים</h2>
+        <p class="lead">פרויקט ההוצאה לאור ממשיך את המפעל שהרב שלום זצ״ל הוביל בימי חייו הקצרים — הוצאה לאור והחייאה של תורת הראשונים והאחרונים, חלקה שלא נדפסה מעולם וחלקה שנעלמה מן המדפים לפני שנים רבות.</p>
+      </div>
+
+      <div class="covers reveal" id="covers" aria-label="כריכות ספרים שיצאו לאור ע״י הרב שלום"></div>
+
+      <div class="table-tools reveal">
+        <div>
+          <h3 style="margin:0">ספרים שיצאו לאור</h3>
+          <p id="sefer-count">יותר מ-25 ספרים שיצאו לאור ע״י הרב שלום זצ״ל</p>
+        </div>
+        <label class="search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold)"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input type="search" id="sefer-search" placeholder="חיפוש לפי שם ספר, מחבר או נושא…" aria-label="חיפוש בספרים שיצאו לאור">
+        </label>
+      </div>
+      <div class="table-wrap reveal">
+        <table class="sefarim">
+          <thead>
+            <tr><th>#</th><th>שם הספר</th><th>מחבר</th><th>ענין</th><th>נדפס לראשונה</th><th>נדפס לאחרונה</th></tr>
+          </thead>
+          <tbody id="sefarim-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Haskamos -->
+  <section id="haskamos" class="alt">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <span class="eyebrow">הסכמות ודברי ברכה</span>
+        <h2>בהסכמת גדולי התורה</h2>
+        <p class="lead">כל ספר זכה להסכמות מרבנים וראשי ישיבות חשובים. מכתבים הגיעו מכל רחבי העולם ובהם הבעת תודה על הספרים — ולא פעם גם חידושים עליהם. לחצו על שם הרב לעיון בהסכמה.</p>
+      </div>
+      <div class="rabbanim">
+        <button class="rav reveal" data-rav="goldstein"><h3>הגאון רבי טוביה גולדשטיין זצ״ל</h3><p>ראש ישיבת עמק הלכה<br>ברוקלין</p><span class="view">לעיון בהסכמה</span></button>
+        <button class="rav reveal" data-rav="feinstein"><h3>הגאון רבי דוד פיינשטיין זצ״ל</h3><p>ראש ישיבת מתיבתא תפארת ירושלים<br>ניו יורק</p><span class="view">לעיון בהסכמה</span></button>
+        <button class="rav reveal" data-rav="lieberman"><h3>הגאון רבי יוסף ליברמן זצ״ל</h3><p>ירושלים</p><span class="view">לעיון בהסכמה</span></button>
+        <button class="rav reveal" data-rav="ehrenfeld"><h3>הגאון רבי שמחה בונים ערנפלד זצ״ל</h3><p>המטרסדורפער רב<br>ברוקלין</p><span class="view">לעיון בהסכמה</span></button>
+        <div class="rav reveal"><h3>הגאון רבי יחזקאל ראטה זצ״ל</h3><p>הקרלסבורגער רב<br>ברוקלין</p></div>
+        <button class="rav reveal" data-rav="schlesinger"><h3>הגאון רבי שמואל עקיבא שלזינגר</h3><p>הרב הראשי<br>שטרסבורג, צרפת</p><span class="view">לעיון בהסכמה</span></button>
+        <button class="rav reveal" data-rav="hershkowitz"><h3>הגאון רבי אפרים פישל הערשקאוויטש זצ״ל</h3><p>ברוקלין</p><span class="view">לעיון בהסכמה</span></button>
+        <button class="rav reveal" data-rav="mazuz"><h3>הגאון רבי מאיר מאזוז</h3><p>ראש ישיבת כסא רחמים<br>בני ברק</p><span class="view">לעיון בהסכמה</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Works in Progress -->
+  <section id="works">
+    <div class="narrow center reveal">
+      <span class="eyebrow">עבודות בתהליך</span>
+      <h2>המלאכה שלא הספיק להשלים</h2>
+      <p class="lead">בעת הסתלקותו עמל הרב שלום זצ״ל במסירות על כמה ספרים, חלקם קרובים להשלמה. כמו כן היה ממייסדי מכון להוצאה לאור של כתבי היד של הגאון רבי צבי הירש גראדזענסקי זצ״ל, במטרה להוציא לאור כ-50 מהם, לצד ספרים יקרים שנעלמו מן המדפים.</p>
+    </div>
+    <div class="wrap wip">
+      <article class="wip-card reveal">
+        <img src="images/wip-handwritten-list.jpg" alt="רשימה בכתב ידו של הרב שלום של ספרים בהכנה" data-lightbox loading="lazy">
+        <div><h3>ספרים בהכנה</h3><p>רשימה בכתב ידו של הספרים שהתכוון להוציא לאור, בשלבי הכנה שונים.</p></div>
+      </article>
+      <article class="wip-card reveal">
+        <img src="images/wip-manuscript.jpg" alt="כתב יד של הגאון רבי צבי הירש גראדזענסקי" data-lightbox loading="lazy">
+        <div><h3>כתבי היד של הגר״צ גראדזענסקי</h3><p>ברשות הרב שלום זצ״ל היו כתבי יד רבים של הגאון רבי צבי הירש גראדזענסקי זצ״ל, שאותם התכוון להביא לדפוס.</p></div>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <img src="images/logo-navy.jpg" alt="מכון לזכר הרב שלום דזשייקאב">
+        <p style="max-width:420px">להנצחת מורשתו של הרב שלום דזשייקאב זצ״ל באמצעות שימור ספריו והוצאה לאור של תורה שנשכחה.</p>
+      </div>
+      <div>
+        <h4>ניווט</h4>
+        <ul>
+          <li><a href="he-about.html">חייו ומורשתו</a></li>
+          <li><a href="he-library.html">פרויקט הספרייה</a></li>
+          <li><a href="#publishing">ספרים שיצאו לאור</a></li>
+          <li><a href="#haskamos">הסכמות</a></li>
+          <li><a href="#works">עבודות בתהליך</a></li>
+          <li><a href="he-about.html#memories">זכרונות</a></li>
+          <li><a href="he.html#newsletter">ספר השבוע</a></li>
+          <li><a href="index.html" lang="en">English</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>קשר</h4>
+        <ul>
+          <li><a href="he-donate.html">תרומה</a></li>
+          <li><a href="mailto:shalomjacobmemorial@gmail.com">דוא״ל</a></li>
+          <li><a href="https://www.instagram.com/shalom_jacob_memorial_library" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://twitter.com/SJMI_Library" target="_blank" rel="noopener">X / Twitter</a></li>
+          <li>מונסי, ניו יורק 10952</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> מכון לזכר הרב שלום דזשייקאב. כל הזכויות שמורות.</span>
+      <a href="privacy.html">מדיניות פרטיות</a>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="תצוגת תמונה">
+  <button class="lb-close" aria-label="סגירה">×</button>
+  <button class="lb-prev" aria-label="הקודם">‹</button>
+  <img alt="">
+  <button class="lb-next" aria-label="הבא">›</button>
+</div>
+
+<script src="sefarim-data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

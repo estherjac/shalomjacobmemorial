@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
-"""Regenerate the Sefarim data file, one page per Sefer, and the sitemap.
+"""Build the site.
 
-Edit data/sefarim.json, then run:  python3 build.py
+- Page content lives in src/en.html and src/he.html (one long page each, split into
+  sections by <!-- Name --> comments). This script splits them into tabbed pages.
+- Sefarim live in data/sefarim.json; this also makes one page per Sefer and the sitemap.
+
+After any edit run:  python3 build.py
 """
 import html
 import json
@@ -11,7 +15,97 @@ ROOT = Path(__file__).parent
 SITE = "https://www.shalomjacobmemorial.com"
 sefarim = json.loads((ROOT / "data/sefarim.json").read_text())
 
-# 1. Data file used by index.html and he.html
+
+# 0. Site pages (tabs) from the single-page sources in src/
+import re
+
+PAGES = {  # key: (sections, banner image)
+    "home": (["Hero", "Stats", "Home intro", "Home projects", "Sefer of the Week + newsletter", "Home donate"], None),
+    "about": (["Life & Legacy", "Memories"], "tint-shelves.jpg"),
+    "library": (["Library Project", "Gallery"], "library-01.jpg"),
+    "publishing": (["Publishing Project", "Haskamos", "Works in Progress"], "library-05.jpg"),
+    "donate": (["Support"], None),
+    "contact": (["Contact"], "library-12.jpg"),
+}
+TEXT = {
+    "en": {
+        "file": {"home": "index.html", "about": "about.html", "library": "library.html", "publishing": "publishing.html", "donate": "donate.html", "contact": "contact.html"},
+        "nav": [("about", "About"), ("library", "Library Project"), ("publishing", "Publishing Project"), ("contact", "Contact")],
+        "donate": "Donate", "other": ("עברית", "he"), "site": "Shalom Jacob Memorial Institute",
+        "banner": {
+            "about": ("Life &amp; Legacy", "Rav Shalom Jacob <span class=\"he\">זצ״ל</span> — Talmid Chacham, <span class=\"he\">איש הספר</span>, and devoted servant of Torah."),
+            "library": ("The Library Project", "Organizing, archiving and digitizing a historic collection of 50,000 Sefarim."),
+            "publishing": ("The Publishing Project", "The Sefarim Rav Shalom brought back to life, the Haskamos they received, and the work still to come."),
+            "donate": ("Support the Institute", ""),
+            "contact": ("Contact Us", "Questions, sponsorships, or a memory to share — we’d love to hear from you."),
+        },
+    },
+    "he": {
+        "file": {"home": "he.html", "about": "he-about.html", "library": "he-library.html", "publishing": "he-publishing.html", "donate": "he-donate.html", "contact": "he-contact.html"},
+        "nav": [("about", "חייו ומורשתו"), ("library", "פרויקט הספרייה"), ("publishing", "ההוצאה לאור"), ("contact", "צור קשר")],
+        "donate": "תרומה", "other": ("English", "en"), "site": "מכון לזכר הרב שלום דזשייקאב זצ״ל",
+        "banner": {
+            "about": ("חייו ומורשתו", "הרב שלום דזשייקאב זצ״ל — תלמיד חכם, איש הספר, ועובד ה׳ במסירות."),
+            "library": ("פרויקט הספרייה", "סידור, ארכוב ודיגיטציה של אוסף היסטורי של 50,000 ספרים."),
+            "publishing": ("פרויקט ההוצאה לאור", "הספרים שהרב שלום החזיר לחיים, ההסכמות שקיבלו, והמלאכה שעוד לפנינו."),
+            "donate": ("תמיכה במכון", ""),
+            "contact": ("צור קשר", "שאלות, הקדשות, או זיכרון לשתף — נשמח לשמוע מכם."),
+        },
+    },
+}
+# where each in-page anchor now lives: id -> (page, keep fragment?)
+ANCHORS = {"top": ("home", False), "intro": ("home", True), "newsletter": ("home", True),
+           "legacy": ("about", False), "memories": ("about", True),
+           "library": ("library", False), "gallery": ("library", True),
+           "publishing": ("publishing", False), "haskamos": ("publishing", True), "works": ("publishing", True),
+           "support": ("donate", False), "contact": ("contact", False)}
+
+
+def build_pages(lang):
+    t = TEXT[lang]
+    src = (ROOT / f"src/{lang}.html").read_text()
+    head, rest = src.split("<main id=\"top\">", 1)
+    main, tail = rest.split("</main>", 1)
+    sections = {m.group(1): m.group(2) for m in re.finditer(r"  <!-- (.+?) -->\n(.*?)(?=\n  <!-- |\Z)", main, re.S)}
+    head = re.sub(r'  <link rel="(alternate|canonical)"[^>]*>\n', "", head)
+    other_label, other_lang = t["other"]
+    for key, (names, banner_img) in PAGES.items():
+        fname = t["file"][key]
+        def fix(m):
+            anchor = m.group(1)
+            if anchor not in ANCHORS:
+                return m.group(0)
+            page, frag = ANCHORS[anchor]
+            if page == key:
+                return f'href="#{anchor}"'
+            return f'href="{t["file"][page]}' + (f"#{anchor}" if frag else "") + '"'
+        current = ' class="current" aria-current="page"'
+        nav = "\n".join(
+            f'      <li><a href="{t["file"][k]}"{current if k == key else ""}>{label}</a></li>'
+            for k, label in t["nav"])
+        nav += (f'\n      <li><a href="{TEXT[other_lang]["file"][key]}" class="lang-toggle" lang="{other_lang}" hreflang="{other_lang}">{other_label}</a></li>'
+                f'\n      <li><a href="{t["file"]["donate"]}" class="btn btn-gold">{t["donate"]}</a></li>')
+        h = re.sub(r'(<ul class="nav-links" id="nav-links">\n).*?(\n    </ul>)', lambda m: m.group(1) + nav + m.group(2), head, flags=re.S)
+        title = t["site"] if key == "home" else f'{re.sub("<[^>]+>", "", t["banner"][key][0]).replace("&amp;", "&")} · {t["site"]}'
+        h = re.sub(r"<title>.*?</title>", f"<title>{title}</title>", h)
+        h = h.replace("</head>", f'  <link rel="canonical" href="{SITE}/{"" if fname == "index.html" else fname}">\n'
+                      f'  <link rel="alternate" hreflang="{other_lang}" href="{TEXT[other_lang]["file"][key]}">\n</head>')
+        h = h.replace('<a href="#top" class="brand">', f'<a href="{t["file"]["home"]}" class="brand">')
+        body = ""
+        if banner_img:
+            bt, bs = t["banner"][key]
+            body += (f'  <section class="page-banner" style="--banner:url(\'images/{banner_img}\')">\n    <div class="wrap">\n'
+                     f'      <h1>{bt}</h1>\n' + (f"      <p>{bs}</p>\n" if bs else "") + "    </div>\n  </section>\n\n")
+        body += "\n".join(f"  <!-- {n} -->\n" + sections[n] for n in names)
+        page = h + '<main id="top">\n' + body + "\n</main>" + tail
+        page = re.sub(r'href="#([\w-]+)"', fix, page)
+        (ROOT / fname).write_text(page)
+    return list(t["file"].values())
+
+
+site_pages = build_pages("en") + build_pages("he")
+
+# 1. Data file used by the site pages
 (ROOT / "sefarim-data.js").write_text(
     "// Generated by build.py from data/sefarim.json — edit that file instead.\n"
     f"window.SEFARIM = {json.dumps(sefarim, ensure_ascii=False, indent=1)};\n"
@@ -41,8 +135,8 @@ HEAD = """<!doctype html>
   <nav class="wrap nav" aria-label="Main">
     <a href="../index.html" class="brand"><img src="../images/logo.jpg" alt="The Shalom Jacob Memorial Institute"></a>
     <div style="display:flex;gap:10px;align-items:center">
-      <a href="../index.html#publishing" class="btn btn-navy" style="background:transparent;color:var(--navy);border-color:var(--line)">All Sefarim</a>
-      <a href="../index.html#support" class="btn btn-gold">Donate</a>
+      <a href="../publishing.html" class="btn btn-navy" style="background:transparent;color:var(--navy);border-color:var(--line)">All Sefarim</a>
+      <a href="../donate.html" class="btn btn-gold">Donate</a>
     </div>
   </nav>
 </header>
@@ -94,7 +188,7 @@ for i, s in enumerate(sefarim):
 
     body = f"""  <section class="sefer-page">
     <div class="wrap">
-      <p class="crumbs"><a href="../index.html#publishing">Published Sefarim</a> / No. {s['id']}</p>
+      <p class="crumbs"><a href="../publishing.html">Published Sefarim</a> / No. {s['id']}</p>
       <div class="sefer-grid">
         <div>{cover}</div>
         <div>
@@ -109,8 +203,8 @@ for i, s in enumerate(sefarim):
           </dl>
           <p>Rav Shalom <span class="he">זצ״ל</span> devoted himself to reviving the Torah of forgotten Rabbinic giants. Like each of the Sefarim he published, this edition was enriched with his own commentary and annotations and a biography of its author.</p>
           <div class="hero-cta" style="margin-top:1.4em">
-            <a href="../index.html#support" class="btn btn-gold">Support the Publishing Project</a>
-            <a href="../index.html#contact" class="btn btn-navy">Ask about this Sefer</a>
+            <a href="../donate.html" class="btn btn-gold">Support the Publishing Project</a>
+            <a href="../contact.html" class="btn btn-navy">Ask about this Sefer</a>
           </div>
           {related}
         </div>
@@ -124,10 +218,10 @@ for i, s in enumerate(sefarim):
     (out / f"{s['id']}.html").write_text(page)
 
 # 3. Sitemap
-urls = [f"{SITE}/", f"{SITE}/he.html", f"{SITE}/privacy.html"] + [f"{SITE}/sefarim/{s['id']}.html" for s in sefarim]
+urls = [f"{SITE}/" + ("" if p == "index.html" else p) for p in site_pages] + [f"{SITE}/privacy.html"] + [f"{SITE}/sefarim/{s['id']}.html" for s in sefarim]
 (ROOT / "sitemap.xml").write_text(
     '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     + "".join(f"  <url><loc>{u}</loc></url>\n" for u in urls) + "</urlset>\n"
 )
 (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")
-print(f"Built {len(sefarim)} Sefer pages, sefarim-data.js and sitemap.xml")
+print(f"Built {len(site_pages)} site pages, {len(sefarim)} Sefer pages, sefarim-data.js and sitemap.xml")
