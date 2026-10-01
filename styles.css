@@ -676,7 +676,7 @@ html:not([dir="rtl"]) .book .he { text-align: left; }
 .instagram.ig-empty { padding: 80px 0; }
 .instagram.ig-empty .ig-grid { display: none; }
 .instagram.ig-empty .section-head { margin-bottom: 0; }
-#instagram { background: var(--paper); border-top: 1px solid var(--line); }
+#instagram { background: var(--parchment); }
 @media (max-width: 960px) { .ig-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 480px) { .ig-grid { gap: 14px; } .ig-post p { font-size: .9rem; padding: 12px 12px 4px; } .ig-more { padding: 0 12px 12px; } }
 /* Instagram placeholders (until the feed is connected) */
