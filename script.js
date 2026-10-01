@@ -239,41 +239,18 @@ document.querySelectorAll("form.form").forEach((form) => {
 
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// ---------- Accessibility menu ----------
+// ---------- Accessibility menu (language) ----------
 (() => {
   const root = document.getElementById("a11y");
   if (!root) return;
   const btn = root.querySelector(".a11y-btn"), panel = root.querySelector(".a11y-panel");
-  const html = document.documentElement, KEY = "sjmi-a11y";
-  let prefs = {};
-  try { prefs = JSON.parse(localStorage.getItem(KEY)) || {}; } catch {}
-  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(prefs)); } catch {} };
-  const apply = () => {
-    const size = prefs.size || 0;
-    html.style.fontSize = size ? `${100 + size * 10}%` : "";
-    document.getElementById("a11y-size-val").textContent = `${100 + size * 10}%`;
-    ["contrast", "links", "motion"].forEach((o) => {
-      html.classList.toggle(`a11y-${o}`, !!prefs[o]);
-      root.querySelector(`[data-opt="${o}"]`).checked = !!prefs[o];
-    });
-  };
   const open = (show) => {
     panel.hidden = !show;
     btn.setAttribute("aria-expanded", show);
-    if (show) panel.querySelector("a, button, input").focus();
+    if (show) panel.querySelector("a").focus();
   };
   btn.addEventListener("click", () => open(panel.hidden));
   root.querySelector(".a11y-close").addEventListener("click", () => { open(false); btn.focus(); });
   document.addEventListener("click", (e) => { if (!panel.hidden && !root.contains(e.target)) open(false); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !panel.hidden) { open(false); btn.focus(); } });
-  root.querySelectorAll("[data-size]").forEach((b) => b.addEventListener("click", () => {
-    prefs.size = Math.max(-1, Math.min(4, (prefs.size || 0) + +b.dataset.size));
-    apply(); save();
-  }));
-  root.querySelectorAll("[data-opt]").forEach((c) => c.addEventListener("change", () => {
-    prefs[c.dataset.opt] = c.checked;
-    apply(); save();
-  }));
-  root.querySelector(".a11y-reset").addEventListener("click", () => { prefs = {}; apply(); save(); });
-  apply();
 })();

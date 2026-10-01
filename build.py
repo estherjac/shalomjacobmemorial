@@ -94,10 +94,8 @@ def build_pages(lang):
             f'      <li><a href="{t["file"][k]}"{current if k == key else ""}>{label}</a></li>'
             for k, label in t["nav"])
         nav += f'\n      <li><a href="{t["file"]["donate"]}" class="btn btn-gold">{t["donate"]}</a></li>'
-        L = {"en": dict(btn="Accessibility", title="Accessibility", lang="Language", size="Text size", contrast="High contrast",
-                        links="Underline links", motion="Stop animations", reset="Reset", close="Close"),
-             "he": dict(btn="נגישות", title="נגישות", lang="שפה", size="גודל טקסט", contrast="ניגודיות גבוהה",
-                        links="הדגשת קישורים", motion="עצירת אנימציות", reset="איפוס", close="סגירה")}[lang]
+        L = {"en": dict(btn="Accessibility", title="Accessibility", lang="Language", close="Close"),
+             "he": dict(btn="נגישות", title="נגישות", lang="שפה", close="סגירה")}[lang]
         here_label = "English" if lang == "en" else "עברית"
         lang_float = f"""<div class="a11y" id="a11y">
   <button class="a11y-btn" aria-expanded="false" aria-controls="a11y-panel" aria-label="{L['btn']}" title="{L['btn']}">
@@ -110,12 +108,6 @@ def build_pages(lang):
       <a href="{t['file'][key] if lang == 'en' else TEXT['en']['file'][key]}" lang="en" hreflang="en"{' aria-current="true"' if lang == 'en' else ''}>English</a>
       <a href="{TEXT['he']['file'][key] if lang == 'en' else t['file'][key]}" lang="he" hreflang="he"{' aria-current="true"' if lang == 'he' else ''}>עברית</a>
     </div>
-    <p class="a11y-label">{L['size']}</p>
-    <div class="a11y-size"><button data-size="-1" aria-label="A-">A−</button><span id="a11y-size-val">100%</span><button data-size="1" aria-label="A+">A+</button></div>
-    <label class="a11y-opt"><span>{L['contrast']}</span><input type="checkbox" data-opt="contrast"></label>
-    <label class="a11y-opt"><span>{L['links']}</span><input type="checkbox" data-opt="links"></label>
-    <label class="a11y-opt"><span>{L['motion']}</span><input type="checkbox" data-opt="motion"></label>
-    <button class="a11y-reset">{L['reset']}</button>
   </div>
 </div>
 """
