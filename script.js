@@ -212,8 +212,15 @@ fetch("data/site.json").then((r) => (r.ok ? r.json() : {})).catch(() => ({})).th
 // ---------- Instagram feed (Behold.so JSON feed URL in data/site.json → "instagram_feed") ----------
 const igEl = document.getElementById("ig-feed");
 if (igEl) fetch("data/site.json").then((r) => (r.ok ? r.json() : {})).catch(() => ({})).then(async ({ instagram_feed }) => {
-  const section = document.getElementById("instagram");
-  if (!instagram_feed) { section.classList.add("ig-empty"); return; }
+  const placeholders = () => {
+    const icon = '<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>';
+    igEl.innerHTML = Array.from({ length: 4 }, () => `<a class="ig-post ig-placeholder" href="https://www.instagram.com/shalom_jacob_memorial_library" target="_blank" rel="noopener">
+      <div class="ig-img">${icon}</div>
+      <p><span></span><span></span><span></span></p>
+      <span class="ig-more">${HE ? "בקרוב" : "Coming soon"}</span>
+    </a>`).join("");
+  };
+  if (!instagram_feed) return placeholders();
   try {
     const data = await (await fetch(instagram_feed)).json();
     const posts = (Array.isArray(data) ? data : data.posts || []).slice(0, 8);
@@ -228,7 +235,7 @@ if (igEl) fetch("data/site.json").then((r) => (r.ok ? r.json() : {})).catch(() =
         <span class="ig-more">${HE ? "לפוסט המלא ←" : "Read on Instagram →"}</span>
       </a>`;
     }).join("");
-  } catch { section.classList.add("ig-empty"); }
+  } catch { placeholders(); }
 });
 
 // ---------- Shiurim & hespedim (from data/shiurim.json) ----------
