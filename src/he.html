@@ -48,7 +48,7 @@
         <p>תלמיד חכם מופלג, בקי בש״ס ובספרי ראשונים ואחרונים, ושותף במשרד עורכי דין מהמובילים בעולם, אשר נקטף בדמי ימיו בגיל 61 ומפעל חייו נקטע.</p>
         <div class="hero-cta">
           <a href="#support" class="btn btn-gold">לתמיכה בספרייה</a>
-          <a href="#legacy" class="btn btn-ghost">חייו ומורשתו</a>
+          <a href="#legacy" class="btn btn-outline">חייו ומורשתו</a>
         </div>
       </div>
     </div>
@@ -176,17 +176,35 @@
 
       <div class="covers reveal" id="covers" aria-label="כריכות ספרים שיצאו לאור ע״י הרב שלום"></div>
 
-      <div class="table-tools reveal">
-        <div>
-          <h3 style="margin:0">ספרים שיצאו לאור</h3>
-          <p id="sefer-count">יותר מ-25 ספרים שיצאו לאור ע״י הרב שלום זצ״ל</p>
+      <div class="center reveal"><a href="#sefarim" class="btn btn-gold">לכל הספרים</a></div>
+    </div>
+  </section>
+
+  <!-- Sefarim -->
+  <section id="sefarim">
+    <div class="wrap">
+      <div class="catalog-tools reveal">
+        <div class="chips" role="group" aria-label="סינון לפי נושא">
+          <button class="chip" data-cat="" aria-pressed="true">הכל</button>
+          <button class="chip" data-cat="mishnah" aria-pressed="false">משנה</button>
+          <button class="chip" data-cat="gemara" aria-pressed="false">גמרא והלכה</button>
+          <button class="chip" data-cat="tanach" aria-pressed="false">תנ״ך ודרוש</button>
+          <button class="chip" data-cat="moadim" aria-pressed="false">מועדים והגדה</button>
         </div>
-        <label class="search">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold)"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-          <input type="search" id="sefer-search" placeholder="חיפוש לפי שם ספר, מחבר או נושא…" aria-label="חיפוש בספרים שיצאו לאור">
-        </label>
+        <div class="catalog-right">
+          <label class="search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold)"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input type="search" id="sefer-search" placeholder="חיפוש לפי שם, מחבר או נושא…" aria-label="חיפוש בספרים">
+          </label>
+          <div class="view-toggle" role="group" aria-label="תצוגה">
+            <button data-view="grid" aria-pressed="true" title="תצוגת רשת" aria-label="תצוגת רשת"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg></button>
+            <button data-view="list" aria-pressed="false" title="תצוגת רשימה" aria-label="תצוגת רשימה"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="2" width="14" height="2.4" rx="1"/><rect x="1" y="6.8" width="14" height="2.4" rx="1"/><rect x="1" y="11.6" width="14" height="2.4" rx="1"/></svg></button>
+          </div>
+        </div>
       </div>
-      <div class="table-wrap reveal">
+      <p id="sefer-count" class="catalog-count">יותר מ-25 ספרים שיצאו לאור ע״י הרב שלום זצ״ל</p>
+      <div class="catalog" id="catalog"></div>
+      <div class="table-wrap" id="catalog-list" hidden>
         <table class="sefarim">
           <thead>
             <tr><th>#</th><th>שם הספר</th><th>מחבר</th><th>ענין</th><th>נדפס לראשונה</th><th>נדפס לאחרונה</th></tr>
@@ -295,7 +313,7 @@
           <label>דוא״ל <small style="font-weight:400;color:var(--muted)">(לא יפורסם)</small><input name="email" type="email" autocomplete="email" required dir="ltr"></label>
           <label>הזיכרון שלכם<textarea name="memory" required></textarea></label>
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-          <button type="submit" class="btn btn-navy">שיתוף זיכרון</button>
+          <button type="submit" class="btn btn-gold">שיתוף זיכרון</button>
           <p class="form-note" role="status"></p>
         </form>
         <div class="form success" id="memory-success" hidden>
@@ -328,7 +346,7 @@
         <h3>תרומה</h3>
         <p>תרומתכם, המוכרת לניכוי מס בארה״ב, תומכת ישירות בשימור אוסף הרב שלום ובהוצאה לאור של עבודתו. יחד נוכל לעשות יותר.</p>
         <a href="mailto:shalomjacobmemorial@gmail.com?subject=Donation%20to%20the%20Shalom%20Jacob%20Memorial%20Institute" class="btn btn-gold" id="donate-btn">לתרומה</a>
-        <a href="#contact" class="btn btn-navy" style="background:transparent;color:var(--navy);border-color:var(--line)">להקדשת ספר או פרויקט</a>
+        <a href="#contact" class="btn btn-outline">להקדשת ספר או פרויקט</a>
         <small>כל התרומות מוכרות לניכוי מס בארה״ב.</small>
         <small class="ein" id="ein" hidden>מספר מזהה למס (EIN): <span dir="ltr"></span></small>
       </div>
@@ -376,7 +394,7 @@
           <label>דוא״ל<input name="email" type="email" autocomplete="email" required dir="ltr"></label>
           <label>הודעה<textarea name="message" required></textarea></label>
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-          <button type="submit" class="btn btn-navy">שליחה</button>
+          <button type="submit" class="btn btn-gold">שליחה</button>
           <p class="form-note" role="status"></p>
         </form>
         <div class="form success" id="contact-success" hidden>
@@ -399,7 +417,7 @@
         <h2>איש הספר</h2>
         <p class="lead">הרב שלום זצ״ל היה איש הספר, והסתלקותו בטרם עת הותירה חלל בעולם התורה — ובפרט בעולם הספרים.</p>
         <p>שותף במשרד עורכי דין מהמובילים בעולם ותלמיד חכם מופלג, אסף במשך עשרות שנים אוסף שאין דומה לו של למעלה מ-50,000 ספרים, והחזיר לדפוס למעלה מ-25 חיבורים נשכחים של ראשונים ואחרונים.</p>
-        <div class="hero-cta"><a href="#legacy" class="btn btn-navy">לסיפור חייו</a><a href="#memories" class="btn btn-navy" style="background:transparent;color:var(--navy);border-color:var(--line)">שיתוף זיכרון</a></div>
+        <div class="hero-cta"><a href="#legacy" class="btn btn-gold">לסיפור חייו</a><a href="#memories" class="btn btn-outline">שיתוף זיכרון</a></div>
       </div>
     </div>
   </section>
@@ -431,7 +449,7 @@
         <h2>עזרו להמשיך את המורשת</h2>
         <p class="lead" style="margin:0">כל תרומה, המוכרת לניכוי מס בארה״ב, מסייעת לשמר את ספרי הרב שלום ולהביא לדפוס את עבודתו שלא הושלמה.</p>
       </div>
-      <div class="hero-cta" style="margin:0"><a href="#support" class="btn btn-gold">לתרומה</a><a href="#support" class="btn btn-navy">אפשרויות הקדשה</a></div>
+      <div class="hero-cta" style="margin:0"><a href="#support" class="btn btn-gold">לתרומה</a><a href="#support" class="btn btn-outline">אפשרויות הקדשה</a></div>
     </div>
   </section>
   <!-- Yahrzeit -->
@@ -442,7 +460,7 @@
       <p class="yz-next">היארצייט הבא: <b id="yz-next"></b></p>
       <p class="lead">ביום היארצייט אנו מזמינים את המשפחה, הידידים והתלמידים ללמוד משניות, לתת צדקה או להקדיש ספר לעילוי נשמת <span id="yz-name" dir="auto"></span>.</p>
       <div class="hero-cta" style="justify-content:center">
-        <a href="#contact" class="btn btn-navy" data-msg="ברצוני ללמוד או להקדיש לימוד ליום היארצייט של הרב שלום.">הקדשת לימוד</a>
+        <a href="#contact" class="btn btn-outline" data-msg="ברצוני ללמוד או להקדיש לימוד ליום היארצייט של הרב שלום.">הקדשת לימוד</a>
         <a href="#support" class="btn btn-gold">תרומה לזכרו</a>
       </div>
     </div>

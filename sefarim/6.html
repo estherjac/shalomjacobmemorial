@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Frank+Ruhl+Libre:wght@400;500;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css?v=52b5b287">
+  <link rel="stylesheet" href="../styles.css?v=4f5fe0bc">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Book", "name": "מסכת הלכה למשה מסיני וקיצור הלכות פסח", "alternateName": "Maseches Halacha LeMoshe MiSinai & Kitzur Hilchos Pesach", "author": {"@type": "Person", "name": "רבי שלמה רפאל יהודה ליאון המכונה טימפלו זצ״ל"}, "inLanguage": "he", "about": "בעניין שיעורין חציצין ומחיצין", "editor": {"@type": "Person", "name": "Rav Shalom Jacob"}, "url": "https://www.shalomjacobmemorial.com/sefarim/6.html"}</script>
 </head>
 <body>
@@ -21,7 +21,7 @@
   <nav class="wrap nav" aria-label="Main">
     <a href="../index.html" class="brand"><img src="../images/logo.jpg" alt="The Shalom Jacob Memorial Institute"></a>
     <div style="display:flex;gap:10px;align-items:center">
-      <a href="../publishing.html" class="btn btn-navy" style="background:transparent;color:var(--navy);border-color:var(--line)">All Sefarim</a>
+      <a href="../sefarim.html" class="btn btn-outline">All Sefarim</a>
       <a href="../donate.html" class="btn btn-gold">Donate</a>
     </div>
   </nav>
@@ -29,7 +29,7 @@
 <main>
   <section class="sefer-page">
     <div class="wrap">
-      <p class="crumbs"><a href="../publishing.html">Published Sefarim</a> / No. 6</p>
+      <p class="crumbs"><a href="../sefarim.html" class="back-link">← Back to all Sefarim</a></p>
       <div class="sefer-grid">
         <div><div class="sefer-cover sefer-cover-blank"><span class="he">ספר</span><b class="he">מסכת הלכה למשה מסיני וקיצור הלכות פסח</b></div></div>
         <div>
@@ -45,7 +45,7 @@
           <p>Rav Shalom <span class="he">זצ״ל</span> devoted himself to reviving the Torah of forgotten Rabbinic giants. Like each of the Sefarim he published, this edition was enriched with his own commentary and annotations and a biography of its author.</p>
           <div class="hero-cta" style="margin-top:1.4em">
             <a href="../donate.html" class="btn btn-gold">Support the Publishing Project</a>
-            <a href="../contact.html" class="btn btn-navy">Ask about this Sefer</a>
+            <a href="../contact.html" class="btn btn-outline">Ask about this Sefer</a>
           </div>
           
         </div>
@@ -54,6 +54,11 @@
     </div>
   </section>
 </main>
+<script>
+  const d = document.querySelector(".cover-dialog");
+  document.querySelector(".cover-zoom")?.addEventListener("click", () => d.showModal());
+  d?.addEventListener("click", (e) => { if (e.target === d) d.close(); });
+</script>
 <footer>
   <div class="wrap foot-bottom">
     <span>© 2026 The Shalom Jacob Memorial Institute · Monsey, NY 10952</span>

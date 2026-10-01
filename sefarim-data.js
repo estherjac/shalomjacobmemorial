@@ -8,7 +8,8 @@ window.SEFARIM = [
   "subject": "על מסכת עירובין",
   "first": "שס״ה בערך / תפ״ה / תרמ״ח",
   "republished": "תשס״א",
-  "cover": "cover-04.jpg"
+  "cover": "cover-04.jpg",
+  "category": "gemara"
  },
  {
   "id": 2,
@@ -17,7 +18,8 @@ window.SEFARIM = [
   "author": "רבי משה ליפשיץ זצ״ל",
   "subject": "פירוש המשניות על סדר זרעים",
   "first": "שצ״ז",
-  "republished": "תשס״ב"
+  "republished": "תשס״ב",
+  "category": "mishnah"
  },
  {
   "id": 3,
@@ -26,7 +28,8 @@ window.SEFARIM = [
   "author": "רבי משה ליפשיץ זצ״ל",
   "subject": "פירוש המשניות על סדר קדשים",
   "first": "שצ״ז",
-  "republished": "תשס״ג"
+  "republished": "תשס״ג",
+  "category": "mishnah"
  },
  {
   "id": 4,
@@ -35,7 +38,8 @@ window.SEFARIM = [
   "author": "רבי משה ליפשיץ זצ״ל",
   "subject": "פירוש המשניות על סדר מועד",
   "first": "שצ״ז",
-  "republished": "תשס״ד"
+  "republished": "תשס״ד",
+  "category": "mishnah"
  },
  {
   "id": 5,
@@ -45,7 +49,8 @@ window.SEFARIM = [
   "subject": "פירוש המשניות על מסכת אבות",
   "first": "ת״ב",
   "republished": "תשס״ה",
-  "cover": "cover-09.jpg"
+  "cover": "cover-09.jpg",
+  "category": "mishnah"
  },
  {
   "id": 6,
@@ -54,7 +59,8 @@ window.SEFARIM = [
   "author": "רבי שלמה רפאל יהודה ליאון המכונה טימפלו זצ״ל",
   "subject": "בעניין שיעורין חציצין ומחיצין",
   "first": "תצ״ד",
-  "republished": "תשס״ה"
+  "republished": "תשס״ה",
+  "category": "gemara"
  },
  {
   "id": 7,
@@ -64,7 +70,8 @@ window.SEFARIM = [
   "subject": "מסים ותקנת הקהילות וסתם יינם ועוד",
   "first": "שע״ו",
   "republished": "תשס״ו",
-  "cover": "cover-07.jpg"
+  "cover": "cover-07.jpg",
+  "category": "gemara"
  },
  {
   "id": 8,
@@ -73,7 +80,8 @@ window.SEFARIM = [
   "author": "רבי יחיאל מיכל מיאברוב זצ״ל",
   "subject": "חידושים וביאורים על מסכת כריתות",
   "first": "תקי״א",
-  "republished": "תשס״ז"
+  "republished": "תשס״ז",
+  "category": "gemara"
  },
  {
   "id": 9,
@@ -82,7 +90,8 @@ window.SEFARIM = [
   "author": "רבי יחיאל מיכל מיאברוב זצ״ל",
   "subject": "חידושים וביאורים על כמה מסכתות ויד החזקה",
   "first": "תקי״א",
-  "republished": "תשס״ח"
+  "republished": "תשס״ח",
+  "category": "gemara"
  },
  {
   "id": 10,
@@ -91,7 +100,8 @@ window.SEFARIM = [
   "author": "רבי יוסף לבית ג׳ג זצ״ל",
   "subject": "הגדה של פסח",
   "first": "תרי״ד",
-  "republished": "תשס״ח"
+  "republished": "תשס״ח",
+  "category": "moadim"
  },
  {
   "id": 11,
@@ -100,7 +110,8 @@ window.SEFARIM = [
   "author": "רבי יהודה ביג׳ה זצ״ל",
   "subject": "חמש עשרה דרשות",
   "first": "שע״ו",
-  "republished": "תש״ע"
+  "republished": "תש״ע",
+  "category": "tanach"
  },
  {
   "id": 12,
@@ -109,7 +120,8 @@ window.SEFARIM = [
   "author": "רבי שמואל לאנייאדו זצ״ל",
   "subject": "פירוש על ספר יהושע",
   "first": "ש״ע",
-  "republished": "תש״ע"
+  "republished": "תש״ע",
+  "category": "tanach"
  },
  {
   "id": 13,
@@ -118,7 +130,8 @@ window.SEFARIM = [
   "author": "רבי צבי הירש גראדזענסקי זצ״ל",
   "subject": "הלכות יין נסך",
   "first": "",
-  "republished": "תשע״א"
+  "republished": "תשע״א",
+  "category": "gemara"
  },
  {
   "id": 14,
@@ -127,7 +140,8 @@ window.SEFARIM = [
   "author": "רבי מאיר ב״ר אליעזר ליברמאן סג״ל זצ״ל",
   "subject": "ברכת התורה וברכת אהבה רבה שפוטרתה",
   "first": "תק״ט",
-  "republished": "תשע״ב"
+  "republished": "תשע״ב",
+  "category": "gemara"
  },
  {
   "id": 15,
@@ -136,7 +150,8 @@ window.SEFARIM = [
   "author": "רבי אלחנן חפץ זצ״ל",
   "subject": "מסכת אבות",
   "first": "שע״ב",
-  "republished": "תשע״ג"
+  "republished": "תשע״ג",
+  "category": "mishnah"
  },
  {
   "id": 16,
@@ -145,7 +160,8 @@ window.SEFARIM = [
   "author": "רבי צבי הירש שלעז זצ״ל",
   "subject": "ביאורים על פרק כ״ד שבחומש בראשית",
   "first": "תרס״ג",
-  "republished": "תשע״ג"
+  "republished": "תשע״ג",
+  "category": "tanach"
  },
  {
   "id": 17,
@@ -155,7 +171,8 @@ window.SEFARIM = [
   "subject": "הגדה של פסח",
   "first": "תרס״ד",
   "republished": "תשע״ד",
-  "cover": "cover-10.jpg"
+  "cover": "cover-10.jpg",
+  "category": "moadim"
  },
  {
   "id": 18,
@@ -164,7 +181,8 @@ window.SEFARIM = [
   "author": "רבי אברהם ארי׳ ליב כהנא זצ״ל",
   "subject": "חלק ראשון — מס׳ ברכות וס׳ מועד",
   "first": "תקפ״ד",
-  "republished": "תשע״ה"
+  "republished": "תשע״ה",
+  "category": "gemara"
  },
  {
   "id": 19,
@@ -173,7 +191,8 @@ window.SEFARIM = [
   "author": "רבי אברהם ארי׳ ליב כהנא זצ״ל",
   "subject": "חלק שני — נשים נזיקין קדשים",
   "first": "תקפ״ד",
-  "republished": "תשע״ה"
+  "republished": "תשע״ה",
+  "category": "gemara"
  },
  {
   "id": 20,
@@ -183,7 +202,8 @@ window.SEFARIM = [
   "subject": "חלק ראשון — על המועדים מר״ה עד חנוכה",
   "first": "",
   "republished": "תשע״ו",
-  "cover": "cover-03.jpg"
+  "cover": "cover-03.jpg",
+  "category": "moadim"
  },
  {
   "id": 21,
@@ -193,7 +213,8 @@ window.SEFARIM = [
   "subject": "פסוק ״פותח את ידיך״ בשבעים אופנים",
   "first": "שפ״א",
   "republished": "תשע״ז",
-  "cover": "cover-08.jpg"
+  "cover": "cover-08.jpg",
+  "category": "tanach"
  },
  {
   "id": 22,
@@ -203,7 +224,8 @@ window.SEFARIM = [
   "subject": "חלק ראשון — בראשית שמות",
   "first": "שס״ד",
   "republished": "תשע״ח",
-  "cover": "cover-01.jpg"
+  "cover": "cover-01.jpg",
+  "category": "tanach"
  },
  {
   "id": 23,
@@ -213,7 +235,8 @@ window.SEFARIM = [
   "subject": "קידוש החודש",
   "first": "תרנ״ד",
   "republished": "תשע״ח",
-  "cover": "cover-11.jpg"
+  "cover": "cover-11.jpg",
+  "category": "gemara"
  },
  {
   "id": 24,
@@ -223,7 +246,8 @@ window.SEFARIM = [
   "subject": "חידושים וביאורים על ששה סדרי משנה",
   "first": "",
   "republished": "תשע״ט",
-  "cover": "cover-12.jpg"
+  "cover": "cover-12.jpg",
+  "category": "mishnah"
  },
  {
   "id": 25,
@@ -233,7 +257,8 @@ window.SEFARIM = [
   "subject": "מסכת אבות",
   "first": "תקס״ד",
   "republished": "תש״פ",
-  "cover": "cover-05.jpg"
+  "cover": "cover-05.jpg",
+  "category": "mishnah"
  },
  {
   "id": 26,
@@ -242,7 +267,8 @@ window.SEFARIM = [
   "author": "רבי דוד אופנהיים / רבי שמואל סג״ל ליכטענשטאט זצ״ל",
   "subject": "מסכת מגילה",
   "first": "",
-  "republished": "תשפ״ב"
+  "republished": "תשפ״ב",
+  "category": "gemara"
  },
  {
   "id": 27,
@@ -252,7 +278,8 @@ window.SEFARIM = [
   "subject": "ישוב ארץ ישראל, מקום המקדש, ועוד",
   "first": "תרנ״ב",
   "republished": "תשפ״ב",
-  "cover": "cover-06.jpg"
+  "cover": "cover-06.jpg",
+  "category": "tanach"
  },
  {
   "id": 28,
@@ -262,6 +289,7 @@ window.SEFARIM = [
   "subject": "ששה סדרי משנה",
   "first": "תקע״ו",
   "republished": "תשפ״ב",
-  "cover": "cover-02.jpg"
+  "cover": "cover-02.jpg",
+  "category": "mishnah"
  }
 ];

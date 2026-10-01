@@ -34,30 +34,33 @@ PAGES = {  # key: (sections, banner image)
     "about": (["Life & Legacy", "Yahrzeit", "Shiurim", "Memories", "Leadership"], "tint-shelves.jpg"),
     "library": (["Library Project", "Gallery"], "library-01.jpg"),
     "publishing": (["Publishing Project", "Haskamos", "Works in Progress"], "library-05.jpg"),
+    "sefarim": (["Sefarim"], "library-07.jpg"),
     "donate": (["Support"], None),
     "contact": (["Contact"], "library-12.jpg"),
 }
 TEXT = {
     "en": {
-        "file": {"home": "index.html", "about": "about.html", "library": "library.html", "publishing": "publishing.html", "donate": "donate.html", "contact": "contact.html"},
-        "nav": [("about", "About"), ("library", "Library Project"), ("publishing", "Publishing Project"), ("contact", "Contact")],
+        "file": {"home": "index.html", "about": "about.html", "library": "library.html", "publishing": "publishing.html", "sefarim": "sefarim.html", "donate": "donate.html", "contact": "contact.html"},
+        "nav": [("about", "About"), ("library", "Library Project"), ("publishing", "Publishing Project"), ("sefarim", "Sefarim"), ("contact", "Contact")],
         "donate": "Donate", "other": ("עברית", "he"), "site": "Shalom Jacob Memorial Institute",
         "banner": {
             "about": ("Life &amp; Legacy", "Rav Shalom Jacob <span class=\"he\">זצ״ל</span> — Talmid Chacham, <span class=\"he\">איש הספר</span>, and devoted servant of Torah."),
             "library": ("The Library Project", "Organizing, archiving and digitizing a historic collection of 50,000 Sefarim."),
             "publishing": ("The Publishing Project", "The Sefarim Rav Shalom brought back to life, the Haskamos they received, and the work still to come."),
+            "sefarim": ("The Sefarim", "Every Sefer Rav Shalom <span class=\"he\">זצ״ל</span> brought back into print — browse by topic, or search by title, author or subject."),
             "donate": ("Support the Institute", ""),
             "contact": ("Contact Us", "Questions, sponsorships, or a memory to share — we’d love to hear from you."),
         },
     },
     "he": {
-        "file": {"home": "he.html", "about": "he-about.html", "library": "he-library.html", "publishing": "he-publishing.html", "donate": "he-donate.html", "contact": "he-contact.html"},
-        "nav": [("about", "חייו ומורשתו"), ("library", "פרויקט הספרייה"), ("publishing", "ההוצאה לאור"), ("contact", "צור קשר")],
+        "file": {"home": "he.html", "about": "he-about.html", "library": "he-library.html", "publishing": "he-publishing.html", "sefarim": "he-sefarim.html", "donate": "he-donate.html", "contact": "he-contact.html"},
+        "nav": [("about", "חייו ומורשתו"), ("library", "פרויקט הספרייה"), ("publishing", "ההוצאה לאור"), ("sefarim", "ספרים"), ("contact", "צור קשר")],
         "donate": "תרומה", "other": ("English", "en"), "site": "מכון לזכר הרב שלום דזשייקאב זצ״ל",
         "banner": {
             "about": ("חייו ומורשתו", "הרב שלום דזשייקאב זצ״ל — תלמיד חכם, איש הספר, ועובד ה׳ במסירות."),
             "library": ("פרויקט הספרייה", "סידור, ארכוב ודיגיטציה של אוסף היסטורי של 50,000 ספרים."),
             "publishing": ("פרויקט ההוצאה לאור", "הספרים שהרב שלום החזיר לחיים, ההסכמות שקיבלו, והמלאכה שעוד לפנינו."),
+            "sefarim": ("הספרים", "כל הספרים שהרב שלום זצ״ל החזיר לדפוס — עיינו לפי נושא, או חפשו לפי שם, מחבר או ענין."),
             "donate": ("תמיכה במכון", ""),
             "contact": ("צור קשר", "שאלות, הקדשות, או זיכרון לשתף — נשמח לשמוע מכם."),
         },
@@ -67,7 +70,7 @@ TEXT = {
 ANCHORS = {"top": ("home", False), "intro": ("home", True), "newsletter": ("home", True),
            "legacy": ("about", False), "memories": ("about", True), "yahrzeit": ("about", True), "shiurim": ("about", True), "leadership": ("about", True),
            "library": ("library", False), "gallery": ("library", True),
-           "publishing": ("publishing", False), "haskamos": ("publishing", True), "works": ("publishing", True),
+           "publishing": ("publishing", False), "sefarim": ("sefarim", False), "haskamos": ("publishing", True), "works": ("publishing", True),
            "support": ("donate", False), "contact": ("contact", False)}
 
 
@@ -162,7 +165,7 @@ HEAD = """<!doctype html>
   <nav class="wrap nav" aria-label="Main">
     <a href="../index.html" class="brand"><img src="../images/logo.jpg" alt="The Shalom Jacob Memorial Institute"></a>
     <div style="display:flex;gap:10px;align-items:center">
-      <a href="../publishing.html" class="btn btn-navy" style="background:transparent;color:var(--navy);border-color:var(--line)">All Sefarim</a>
+      <a href="../sefarim.html" class="btn btn-outline">All Sefarim</a>
       <a href="../donate.html" class="btn btn-gold">Donate</a>
     </div>
   </nav>
@@ -171,6 +174,11 @@ HEAD = """<!doctype html>
 """
 
 FOOT = """</main>
+<script>
+  const d = document.querySelector(".cover-dialog");
+  document.querySelector(".cover-zoom")?.addEventListener("click", () => d.showModal());
+  d?.addEventListener("click", (e) => { if (e.target === d) d.close(); });
+</script>
 <footer>
   <div class="wrap foot-bottom">
     <span>© 2026 The Shalom Jacob Memorial Institute · Monsey, NY 10952</span>
@@ -202,7 +210,9 @@ for i, s in enumerate(sefarim):
         "editor": {"@type": "Person", "name": "Rav Shalom Jacob"}, "url": url,
         **({"image": f"{SITE}/images/{s['cover']}"} if s.get("cover") else {}),
     }, ensure_ascii=False)
-    cover = (f'<img src="../images/{s["cover"]}" alt="Cover of {e(s["en"])}" class="sefer-cover">' if s.get("cover")
+    cover = (f'<button class="cover-zoom" aria-label="Enlarge cover"><img src="../images/{s["cover"]}" alt="Cover of {e(s["en"])}" class="sefer-cover"><span>View larger</span></button>'
+             f'<dialog class="cover-dialog" aria-label="Cover of {e(s["en"])}"><form method="dialog"><button aria-label="Close">×</button></form><img src="../images/{s["cover"]}" alt="Cover of {e(s["en"])}"></dialog>'
+             if s.get("cover")
              else f'<div class="sefer-cover sefer-cover-blank"><span class="he">ספר</span><b class="he">{e(s["title"])}</b></div>')
     first = f'<div><dt>First printed</dt><dd class="he">{e(s["first"])}</dd></div>' if s.get("first") else ""
     same = [o for o in sefarim if o["id"] != s["id"] and (o["author"] == s["author"] or o["title"] == s["title"])]
@@ -215,7 +225,7 @@ for i, s in enumerate(sefarim):
 
     body = f"""  <section class="sefer-page">
     <div class="wrap">
-      <p class="crumbs"><a href="../publishing.html">Published Sefarim</a> / No. {s['id']}</p>
+      <p class="crumbs"><a href="../sefarim.html" class="back-link">← Back to all Sefarim</a></p>
       <div class="sefer-grid">
         <div>{cover}</div>
         <div>
@@ -231,7 +241,7 @@ for i, s in enumerate(sefarim):
           <p>Rav Shalom <span class="he">זצ״ל</span> devoted himself to reviving the Torah of forgotten Rabbinic giants. Like each of the Sefarim he published, this edition was enriched with his own commentary and annotations and a biography of its author.</p>
           <div class="hero-cta" style="margin-top:1.4em">
             <a href="../donate.html" class="btn btn-gold">Support the Publishing Project</a>
-            <a href="../contact.html" class="btn btn-navy">Ask about this Sefer</a>
+            <a href="../contact.html" class="btn btn-outline">Ask about this Sefer</a>
           </div>
           {related}
         </div>

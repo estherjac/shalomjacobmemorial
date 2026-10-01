@@ -65,27 +65,63 @@ if (weekBox && SEFARIM.length) {
     </div>`;
 }
 
-// ---------- Published Sefarim table ----------
+// ---------- Sefarim catalogue (grid + list, topic filter, search) ----------
 const body = document.getElementById("sefarim-body");
 const count = document.getElementById("sefer-count");
+const catalog = document.getElementById("catalog");
+const listWrap = document.getElementById("catalog-list");
+const CATS = HE
+  ? { mishnah: "משנה", gemara: "גמרא והלכה", tanach: "תנ״ך ודרוש", moadim: "מועדים והגדה" }
+  : { mishnah: "Mishnah", gemara: "Gemara & Halacha", tanach: "Tanach & Drush", moadim: "Moadim & Haggadah" };
 const strip = (s) => s.replace(/[״׳"'\/—\-]/g, "").toLowerCase();
-function renderSefarim(q = "") {
-  if (!body) return;
-  const needle = strip(q.trim());
-  const rows = SEFARIM.filter((s) => !needle || strip([s.title, s.en, s.author, s.subject].join(" ")).includes(needle));
-  body.innerHTML = rows.length
+const state = { q: "", cat: "", view: "grid" };
+function renderSefarim() {
+  if (!body && !catalog) return;
+  const needle = strip(state.q.trim());
+  const rows = SEFARIM.filter((s) => (!state.cat || s.category === state.cat) &&
+    (!needle || strip([s.title, s.en, s.author, s.subject].join(" ")).includes(needle)));
+  const none = `<p class="empty">${esc(T.none(state.q || CATS[state.cat] || ""))}</p>`;
+  if (catalog) catalog.innerHTML = rows.length ? rows.map((s) => `
+    <a class="book" href="sefarim/${s.id}.html">
+      <div class="book-cover">${s.cover
+        ? `<img src="images/${s.cover}" alt="" loading="lazy">`
+        : `<div class="sefer-cover-blank"><span class="he">ספר</span><b class="he">${esc(s.title)}</b></div>`}</div>
+      <span class="book-cat">${esc(CATS[s.category] || "")}</span>
+      <b class="he book-title" lang="he">${esc(s.title)}</b>
+      ${HE ? "" : `<span class="book-en">${esc(s.en)}</span>`}
+      <span class="he book-author" lang="he">${esc(s.author)}</span>
+    </a>`).join("") : none;
+  if (body) body.innerHTML = rows.length
     ? rows.map((s) => `<tr><td>${s.id}</td><td class="title"><a href="sefarim/${s.id}.html">${esc(s.title)}</a></td><td>${esc(s.author)}</td><td>${esc(s.subject)}</td><td class="year">${esc(s.first) || "—"}</td><td class="year">${esc(s.republished)}</td></tr>`).join("")
-    : `<tr><td colspan="6" class="empty">${esc(T.none(q))}</td></tr>`;
-  count.innerHTML = T.count(rows.length, SEFARIM.length);
+    : `<tr><td colspan="6" class="empty">${esc(T.none(state.q))}</td></tr>`;
+  if (count) count.innerHTML = T.count(rows.length, SEFARIM.length);
+  if (catalog && listWrap) { catalog.hidden = state.view !== "grid"; listWrap.hidden = state.view !== "list"; }
 }
 renderSefarim();
-document.getElementById("sefer-search")?.addEventListener("input", (e) => renderSefarim(e.target.value));
+document.getElementById("sefer-search")?.addEventListener("input", (e) => { state.q = e.target.value; renderSefarim(); });
+document.querySelectorAll(".chip").forEach((c) => c.addEventListener("click", () => {
+  state.cat = c.dataset.cat;
+  document.querySelectorAll(".chip").forEach((x) => x.setAttribute("aria-pressed", x === c));
+  renderSefarim();
+}));
+document.querySelectorAll(".view-toggle button").forEach((b) => b.addEventListener("click", () => {
+  state.view = b.dataset.view;
+  document.querySelectorAll(".view-toggle button").forEach((x) => x.setAttribute("aria-pressed", x === b));
+  renderSefarim();
+}));
 
 // ---------- Gallery ----------
 const galleryEl = document.getElementById("gallery-grid");
-if (galleryEl) galleryEl.innerHTML = Array.from({ length: 16 }, (_, i) =>
-  `<img src="images/library-${String(i + 1).padStart(2, "0")}.jpg" alt="${T.gallery}" loading="lazy" data-lightbox data-group="gallery">`
-).join("");
+if (galleryEl) {
+  galleryEl.innerHTML = Array.from({ length: 16 }, (_, i) =>
+    `<img src="images/library-${String(i + 1).padStart(2, "0")}.jpg" alt="${T.gallery}" loading="lazy" data-lightbox data-group="gallery">`
+  ).join("");
+  const more = document.createElement("div");
+  more.className = "center gallery-more";
+  more.innerHTML = `<button class="btn btn-outline">${HE ? "לכל 16 התמונות" : "View all 16 photos"}</button>`;
+  galleryEl.after(more);
+  more.querySelector("button").addEventListener("click", () => { galleryEl.classList.add("expanded"); more.remove(); });
+}
 
 // ---------- Lightbox ----------
 const lb = document.getElementById("lightbox");

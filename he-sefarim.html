@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>תמיכה במכון · מכון לזכר הרב שלום דזשייקאב זצ״ל</title>
+  <title>הספרים · מכון לזכר הרב שלום דזשייקאב זצ״ל</title>
   <meta name="description" content="מכון לזכר הרב שלום דזשייקאב זצ״ל — סידור, קטלוג ודיגיטציה של אוסף של למעלה מ-50,000 ספרים, והמשך מפעלו בהוצאה לאור של תורת הראשונים והאחרונים.">
   <meta property="og:title" content="מכון לזכר הרב שלום דזשייקאב זצ״ל">
   <meta property="og:description" content="פרויקט הספרייה ופרויקט ההוצאה לאור להנצחת מורשתו של הרב שלום דזשייקאב זצ״ל.">
@@ -13,8 +13,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Frank+Ruhl+Libre:wght@400;500;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=4f5fe0bc">
-  <link rel="canonical" href="https://www.shalomjacobmemorial.com/he-donate.html">
-  <link rel="alternate" hreflang="en" href="donate.html">
+  <link rel="canonical" href="https://www.shalomjacobmemorial.com/he-sefarim.html">
+  <link rel="alternate" hreflang="en" href="sefarim.html">
 </head>
 <body>
 
@@ -28,7 +28,7 @@
       <li><a href="he-about.html">חייו ומורשתו</a></li>
       <li><a href="he-library.html">פרויקט הספרייה</a></li>
       <li><a href="he-publishing.html">ההוצאה לאור</a></li>
-      <li><a href="he-sefarim.html">ספרים</a></li>
+      <li><a href="he-sefarim.html" class="current" aria-current="page">ספרים</a></li>
       <li><a href="he-contact.html">צור קשר</a></li>
       <li><a href="he-donate.html" class="btn btn-gold">תרומה</a></li>
     </ul>
@@ -36,37 +36,45 @@
 </header>
 
 <main id="top">
-  <!-- Support -->
-  <section id="support" class="support">
-    <div class="wrap support-grid">
-      <div class="reveal">
-        <span class="eyebrow">הצטרפו אלינו</span>
-        <h2>הצטרפו להמשך מורשת של תורה ולמדנות</h2>
-        <p class="lead">בימי חייו הוביל הרב שלום זצ״ל לבדו את החייאתם של עשרות חיבורים תורניים שנשכחו — מן המחקר, הלימוד והכתיבה המדוקדקים ועד הקפדה על איכות הדפוס הגבוהה ביותר. זו הייתה תשוקתו ושליחות חייו, שהותירה לו שעות שינה מעטות בלבד.</p>
-        <p class="lead">כעת מוטלת עלינו האחריות להמשיך את השליחות, ואנו זקוקים לעזרתכם.</p>
-        <div class="progress" id="progress" hidden>
-          <div class="progress-bar"><i></i></div>
-          <div class="progress-meta"><span>גויסו <b id="raised"></b></span><span>יעד: $2,500,000</span></div>
-        </div>
-        <div class="ways">
-          <div class="way"><i>1</i><div><b>פרויקט הספרייה</b><span>סידור, ארכוב ודיגיטציה של 50,000 ספרים ובניית בית קבע עבורם.</span></div></div>
-          <div class="way"><i>2</i><div><b>פרויקט ההוצאה לאור</b><span>הבאה לדפוס של ספריו שלא הושלמו ושל כתבי היד של הגר״צ גראדזענסקי.</span></div></div>
-        </div>
-      </div>
-      <div class="give-card reveal">
-        <h3>תרומה</h3>
-        <p>תרומתכם, המוכרת לניכוי מס בארה״ב, תומכת ישירות בשימור אוסף הרב שלום ובהוצאה לאור של עבודתו. יחד נוכל לעשות יותר.</p>
-        <a href="mailto:shalomjacobmemorial@gmail.com?subject=Donation%20to%20the%20Shalom%20Jacob%20Memorial%20Institute" class="btn btn-gold" id="donate-btn">לתרומה</a>
-        <a href="he-contact.html" class="btn btn-outline">להקדשת ספר או פרויקט</a>
-        <small>כל התרומות מוכרות לניכוי מס בארה״ב.</small>
-        <small class="ein" id="ein" hidden>מספר מזהה למס (EIN): <span dir="ltr"></span></small>
-      </div>
+  <section class="page-banner" style="--banner:url('images/library-07.jpg')">
+    <div class="wrap">
+      <h1>הספרים</h1>
+      <p>כל הספרים שהרב שלום זצ״ל החזיר לדפוס — עיינו לפי נושא, או חפשו לפי שם, מחבר או ענין.</p>
     </div>
-    <div class="wrap tiers">
-      <div class="tier reveal"><b>$180</b><h3>קטלוג מדף</h3><p>מימון קטלוג והצלבה של מדף ספרים באוסף.</p><a href="he-contact.html" data-msg="ברצוני לממן קטלוג מדף ספרים ($180).">להקדשה ←</a></div>
-      <div class="tier reveal"><b>$1,800</b><h3>שימור ספר נדיר</h3><p>שימור ודיגיטציה של כרך נדיר, עם הקדשה ברשומת הקטלוג.</p><a href="he-contact.html" data-msg="ברצוני לממן שימור ספר נדיר ($1,800).">להקדשה ←</a></div>
-      <div class="tier reveal"><b>$5,000</b><h3>הקדשת אגף</h3><p>הקדשת אגף בספרייה לעילוי נשמת או לכבוד יקיריכם.</p><a href="he-contact.html" data-msg="ברצוני להקדיש אגף בספרייה ($5,000).">להקדשה ←</a></div>
-      <div class="tier reveal"><b>$18,000</b><h3>הקדשת ספר</h3><p>מימון הוצאה לאור של אחד מספריו של הרב שלום שלא הושלמו, עם דף הקדשה.</p><a href="he-contact.html" data-msg="ברצוני להקדיש הוצאה לאור של ספר ($18,000).">להקדשה ←</a></div>
+  </section>
+
+  <!-- Sefarim -->
+  <section id="sefarim">
+    <div class="wrap">
+      <div class="catalog-tools reveal">
+        <div class="chips" role="group" aria-label="סינון לפי נושא">
+          <button class="chip" data-cat="" aria-pressed="true">הכל</button>
+          <button class="chip" data-cat="mishnah" aria-pressed="false">משנה</button>
+          <button class="chip" data-cat="gemara" aria-pressed="false">גמרא והלכה</button>
+          <button class="chip" data-cat="tanach" aria-pressed="false">תנ״ך ודרוש</button>
+          <button class="chip" data-cat="moadim" aria-pressed="false">מועדים והגדה</button>
+        </div>
+        <div class="catalog-right">
+          <label class="search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold)"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input type="search" id="sefer-search" placeholder="חיפוש לפי שם, מחבר או נושא…" aria-label="חיפוש בספרים">
+          </label>
+          <div class="view-toggle" role="group" aria-label="תצוגה">
+            <button data-view="grid" aria-pressed="true" title="תצוגת רשת" aria-label="תצוגת רשת"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg></button>
+            <button data-view="list" aria-pressed="false" title="תצוגת רשימה" aria-label="תצוגת רשימה"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="2" width="14" height="2.4" rx="1"/><rect x="1" y="6.8" width="14" height="2.4" rx="1"/><rect x="1" y="11.6" width="14" height="2.4" rx="1"/></svg></button>
+          </div>
+        </div>
+      </div>
+      <p id="sefer-count" class="catalog-count">יותר מ-25 ספרים שיצאו לאור ע״י הרב שלום זצ״ל</p>
+      <div class="catalog" id="catalog"></div>
+      <div class="table-wrap" id="catalog-list" hidden>
+        <table class="sefarim">
+          <thead>
+            <tr><th>#</th><th>שם הספר</th><th>מחבר</th><th>ענין</th><th>נדפס לראשונה</th><th>נדפס לאחרונה</th></tr>
+          </thead>
+          <tbody id="sefarim-body"></tbody>
+        </table>
+      </div>
     </div>
   </section>
 
@@ -79,8 +87,8 @@
     <div class="a11y-head"><b>נגישות</b><button class="a11y-close" aria-label="סגירה">×</button></div>
     <p class="a11y-label">שפה</p>
     <div class="a11y-langs">
-      <a href="donate.html" lang="en" hreflang="en">English</a>
-      <a href="he-donate.html" lang="he" hreflang="he" aria-current="true">עברית</a>
+      <a href="sefarim.html" lang="en" hreflang="en">English</a>
+      <a href="he-sefarim.html" lang="he" hreflang="he" aria-current="true">עברית</a>
     </div>
   </div>
 </div>
@@ -109,7 +117,7 @@
       <div>
         <h4>קשר</h4>
         <ul>
-          <li><a href="#support">תרומה</a></li>
+          <li><a href="he-donate.html">תרומה</a></li>
           <li><a href="mailto:shalomjacobmemorial@gmail.com">דוא״ל</a></li>
           <li><a href="https://www.instagram.com/shalom_jacob_memorial_library" target="_blank" rel="noopener">Instagram</a></li>
           <li><a href="https://twitter.com/SJMI_Library" target="_blank" rel="noopener">X / Twitter</a></li>
