@@ -730,3 +730,54 @@ html:not([dir="rtl"]) .book .he { text-align: left; }
 .shiur-submit { margin-top: 40px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
 .shiur-submit p { margin: 0; color: var(--muted); }
 #memories .section-head { margin-bottom: 40px; }
+
+/* =====================================================================
+   Refined Classic — overrides (same palette, more air, sharper details)
+   ===================================================================== */
+:root { --radius: 4px; --shadow: 0 1px 2px rgba(12,22,49,.06), 0 18px 40px -26px rgba(12,22,49,.4); }
+section { padding: 120px 0; }
+@media (max-width: 640px) { section { padding: 84px 0; } }
+
+/* Buttons: squared, small caps feel */
+.btn { border-radius: 2px; text-transform: uppercase; letter-spacing: .12em; font-size: .8rem; padding: 1.05em 1.9em; }
+html[dir="rtl"] .btn { text-transform: none; letter-spacing: 0; font-size: 1rem; padding: .85em 1.7em; }
+.nav-links .btn { padding: .85em 1.4em; }
+
+/* Eyebrows & section heads: finer lines, a gold rule under centered headings */
+.eyebrow { letter-spacing: .3em; font-size: .72rem; }
+.eyebrow::before, .center .eyebrow::after { width: 40px; opacity: .8; }
+.section-head.center h2::after, .narrow.center h2::after { content: ""; display: block; width: 48px; height: 1px; background: var(--gold); margin: 26px auto 0; }
+h1, h2 { font-weight: 500; }
+html[dir="rtl"] h1, html[dir="rtl"] h2 { font-weight: 700; }
+
+/* Hero: headline anchored low on the photo, vertical fade */
+.hero { align-items: end; min-height: min(82vh, 700px); padding: 140px 0 76px; }
+.hero::after { background: linear-gradient(180deg, rgba(12,22,49,.25) 0%, rgba(12,22,49,.55) 45%, rgba(12,22,49,.93) 100%) !important; }
+.hero .eyebrow { color: var(--gold-soft); }
+.hero h1 { font-weight: 500; letter-spacing: -.005em; }
+.hero h1 .he { font-size: .5em; }
+.hero p { font-size: 1.12rem; }
+
+/* Stats: flat, ruled row instead of a floating card */
+.stats { margin-top: 0; background: var(--paper); border-bottom: 1px solid var(--line); }
+.stats-grid { background: none; box-shadow: none; border: 0; border-radius: 0; }
+.stat { padding: 38px 20px; border-color: var(--line); }
+.stat b { font-weight: 500; }
+.stat span { letter-spacing: .22em; font-size: .7rem; color: #8a7a55; }
+
+/* Page banners: same low-anchored treatment */
+.page-banner { padding: 130px 0 56px; }
+.page-banner::after { background: linear-gradient(180deg, rgba(12,22,49,.45), rgba(12,22,49,.93)) !important; }
+.page-banner h1 { font-weight: 500; }
+
+/* Cards: quieter edges */
+.pillar, .rav, .project, .tier, .shiur, .memory, .member, .ig-post, .wip-card, .give-card, .form, .cta-inner, .weekly-card, .catalog-tools, .table-wrap, .sefer-facts { border-radius: var(--radius); }
+.pillar:hover, .project:hover, .ig-post:hover { transform: translateY(-2px); }
+.pillar { padding: 38px 32px; }
+.pillar .num { letter-spacing: .24em; }
+
+/* Inputs, chips, search: squared to match */
+.form input, .form textarea, .search, .chip, .view-toggle, .view-toggle button, .a11y-langs a, .pill { border-radius: 2px; }
+.goal { border-radius: var(--radius); }
+.book-cover, .covers img, .sefer-cover { border-radius: 2px; }
+.stat b, .goal b, .tier b { direction: ltr; unicode-bidi: isolate; }

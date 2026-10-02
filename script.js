@@ -311,7 +311,7 @@ const countObs = new IntersectionObserver((entries) => entries.forEach((e) => {
   };
   requestAnimationFrame(tick);
 }), { threshold: 0.6 });
-document.querySelectorAll("[data-count]").forEach((el) => countObs.observe(el));
+// Stats show their final numbers (count-up animation turned off for a calmer look).
 
 // ---------- Forms (contact + memories) ----------
 document.querySelectorAll("form.form").forEach((form) => {
