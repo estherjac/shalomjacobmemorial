@@ -310,8 +310,12 @@ const countObs = new IntersectionObserver((entries) => entries.forEach((e) => {
     if (p < 1) requestAnimationFrame(tick);
   };
   requestAnimationFrame(tick);
-}), { threshold: 0.6 });
-// Stats show their final numbers (count-up animation turned off for a calmer look).
+}), { threshold: 0.4 });
+// Stats count up from 0 the first time they come into view.
+document.querySelectorAll("[data-count]").forEach((el) => {
+  if (!reduce) el.textContent = "0" + (el.dataset.suffix || "");
+  countObs.observe(el);
+});
 
 // ---------- Forms (contact + memories) ----------
 document.querySelectorAll("form.form").forEach((form) => {
