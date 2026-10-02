@@ -31,7 +31,7 @@ def stamp(html_text, prefix=""):
 
 PAGES = {  # key: (sections, banner image)
     "home": (["Hero", "Stats", "Home intro", "Home projects", "Instagram", "Home donate"], None),  # "Sefer of the Week + newsletter" paused for now
-    "about": (["Life & Legacy", "Yahrzeit", "Shiurim", "Memories", "Leadership"], "tint-shelves.jpg"),
+    "about": (["Life & Legacy", "Legacy bands", "Yahrzeit", "Shiurim", "Memories", "Leadership"], "library-12.jpg"),
     "library": (["Library Project", "Gallery", "Instagram"], "library-01.jpg"),
     "publishing": (["Publishing Project", "Haskamos", "Works in Progress"], "library-05.jpg"),
     "sefarim": (["Sefarim"], "library-07.jpg"),
@@ -44,7 +44,7 @@ TEXT = {
         "nav": [("about", "About"), ("library", "Library Project"), ("sefarim", "Sefarim"), ("publishing", "Continuing His Work"), ("contact", "Contact")],
         "donate": "Donate", "other": ("עברית", "he"), "site": "Shalom Jacob Memorial Institute",
         "banner": {
-            "about": ("Life &amp; Legacy", "Rav Shalom Jacob <span class=\"he\">זצ״ל</span> — Talmid Chacham, <span class=\"he\">איש הספר</span>, and devoted servant of Torah."),
+            "about": ("Rav Shalom Jacob", "הרב שלום דזשייקאב זצ״ל", "In Memory of"),
             "library": ("The Library Project", "Organizing, archiving and digitizing a historic collection of 50,000 Sefarim."),
             "publishing": ("Continuing His Work", "Carrying Rav Shalom’s publishing mission forward — the Haskamos his Sefarim received, and the work he left unfinished."),
             "sefarim": ("The Sefarim", "Every Sefer Rav Shalom <span class=\"he\">זצ״ל</span> brought back into print — browse by topic, or search by title, author or subject."),
@@ -57,7 +57,7 @@ TEXT = {
         "nav": [("about", "חייו ומורשתו"), ("library", "פרויקט הספרייה"), ("sefarim", "ספרים"), ("publishing", "המשך מפעלו"), ("contact", "צור קשר")],
         "donate": "תרומה", "other": ("English", "en"), "site": "מכון לזכר הרב שלום דזשייקאב זצ״ל",
         "banner": {
-            "about": ("חייו ומורשתו", "הרב שלום דזשייקאב זצ״ל — תלמיד חכם, איש הספר, ועובד ה׳ במסירות."),
+            "about": ("הרב שלום דזשייקאב", "זצ״ל", "לזכרו של"),
             "library": ("פרויקט הספרייה", "סידור, ארכוב ודיגיטציה של אוסף היסטורי של 50,000 ספרים."),
             "publishing": ("המשך מפעלו", "ממשיכים את שליחותו של הרב שלום בהוצאה לאור — ההסכמות שקיבלו ספריו, והמלאכה שלא הספיק להשלים."),
             "sefarim": ("הספרים", "כל הספרים שהרב שלום זצ״ל החזיר לדפוס — עיינו לפי נושא, או חפשו לפי שם, מחבר או ענין."),
@@ -115,16 +115,20 @@ def build_pages(lang):
 </div>
 """
         h = re.sub(r'(<ul class="nav-links" id="nav-links">\n).*?(\n    </ul>)', lambda m: m.group(1) + nav + m.group(2), head, flags=re.S)
-        title = t["site"] if key == "home" else f'{re.sub("<[^>]+>", "", t["banner"][key][0]).replace("&amp;", "&")} · {t["site"]}'
+        title = t["site"] if key == "home" else f'{("Life & Legacy" if lang == "en" else "חייו ומורשתו") if key == "about" else re.sub("<[^>]+>", "", t["banner"][key][0]).replace("&amp;", "&")} · {t["site"]}'
         h = re.sub(r"<title>.*?</title>", f"<title>{title}</title>", h)
         h = h.replace("</head>", f'  <link rel="canonical" href="{SITE}/{"" if fname == "index.html" else fname}">\n'
                       f'  <link rel="alternate" hreflang="{other_lang}" href="{TEXT[other_lang]["file"][key]}">\n</head>')
         h = h.replace('<a href="#top" class="brand">', f'<a href="{t["file"]["home"]}" class="brand">')
         body = ""
         if banner_img:
-            bt, bs = t["banner"][key]
-            body += (f'  <section class="page-banner" style="--banner:url(\'images/{banner_img}\')">\n    <div class="wrap">\n'
-                     f'      <h1>{bt}</h1>\n' + (f"      <p>{bs}</p>\n" if bs else "") + "    </div>\n  </section>\n\n")
+            bt, bs, *eb = t["banner"][key]
+            if eb:  # cinematic, centered memorial opening
+                body += (f'  <section class="page-banner cinematic" style="--banner:url(\'images/{banner_img}\')">\n    <div class="wrap">\n'
+                         f'      <span class="eyebrow">{eb[0]}</span>\n      <h1>{bt}</h1>\n      <p class="hebname" lang="he">{bs}</p>\n    </div>\n  </section>\n\n')
+            else:
+                body += (f'  <section class="page-banner" style="--banner:url(\'images/{banner_img}\')">\n    <div class="wrap">\n'
+                         f'      <h1>{bt}</h1>\n' + (f"      <p>{bs}</p>\n" if bs else "") + "    </div>\n  </section>\n\n")
         body += "\n".join(f"  <!-- {n} -->\n" + sections[n] for n in names)
         h = h.replace("    </ul>\n  </nav>", "    </ul>\n    " + lang_float.replace("\n", "\n    ").rstrip() + "\n  </nav>", 1)
         page = h + '<main id="top">\n' + body + "\n</main>\n" + tail
