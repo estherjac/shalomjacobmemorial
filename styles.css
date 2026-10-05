@@ -810,3 +810,9 @@ html[dir="rtl"] .band .big small { letter-spacing: 0; font-family: var(--hebrew)
   .band-inner { grid-template-columns: 1fr; gap: 18px; }
   .band .big { text-align: start; }
 }
+
+/* Instagram's own post embeds */
+.ig-grid.ig-embeds { grid-template-columns: repeat(auto-fit, minmax(min(326px, 100%), 1fr)); align-items: start; gap: 24px; }
+.ig-embeds .instagram-media { margin: 0 !important; min-width: 0 !important; width: 100% !important; max-width: 100% !important; border-radius: var(--radius) !important; }
+.ig-embeds blockquote.instagram-media { background: var(--paper); padding: 20px; text-align: center; }
+.ig-embeds blockquote.instagram-media a { color: var(--navy); font-weight: 600; }

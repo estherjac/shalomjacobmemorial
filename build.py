@@ -131,7 +131,7 @@ def build_pages(lang):
                          f'      <h1>{bt}</h1>\n' + (f"      <p>{bs}</p>\n" if bs else "") + "    </div>\n  </section>\n\n")
         body += "\n".join(f"  <!-- {n} -->\n" + sections[n] for n in names)
         h = h.replace("    </ul>\n  </nav>", "    </ul>\n    " + lang_float.replace("\n", "\n    ").rstrip() + "\n  </nav>", 1)
-        page = h + '<main id="top">\n' + body + "\n</main>\n" + tail
+        page = h.replace("<body>", f'<body data-page="{key}">', 1) + '<main id="top">\n' + body + "\n</main>\n" + tail
         page = re.sub(r'href="#([\w-]+)"', fix, page)
         (ROOT / fname).write_text(stamp(page))
     return list(t["file"].values())

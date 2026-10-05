@@ -221,7 +221,35 @@ if (igEl) fetch("data/site.json").then((r) => (r.ok ? r.json() : {})).catch(() =
       <span class="ig-more">${HE ? "בקרוב" : "Coming soon"}</span>
     </a>`).join("");
   };
-  if (!instagram_feed) return placeholders();
+  if (!instagram_feed) {
+    // Instagram's own embeds for the post links listed in data/instagram.json (newest first)
+    const links = await fetch("data/instagram.json").then((r) => (r.ok ? r.json() : [])).catch(() => []);
+    if (!links.length) return placeholders();
+    const n = document.body.dataset.page === "home" ? 3 : 6;
+    igEl.classList.add("ig-embeds");
+    igEl.innerHTML = links.slice(0, n).map((url) =>
+      `<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="${esc(url)}?utm_source=ig_embed" data-instgrm-version="14"><a href="${esc(url)}" target="_blank" rel="noopener">${HE ? "לצפייה באינסטגרם" : "View this post on Instagram"}</a></blockquote>`
+    ).join("");
+    if (window.instgrm) window.instgrm.Embeds.process();
+    else {
+      const sc = document.createElement("script");
+      sc.async = true;
+      sc.src = "https://www.instagram.com/embed.js";
+      document.body.append(sc);
+    }
+    // If the browser blocks Instagram's embeds, fall back to simple cards linking to each post
+    setTimeout(() => {
+      const frames = [...igEl.querySelectorAll("iframe")];
+      if (frames.length && frames.some((f) => f.offsetHeight > 50)) return;
+      const icon = '<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>';
+      igEl.classList.remove("ig-embeds");
+      igEl.innerHTML = links.slice(0, n).map((url) => `<a class="ig-post ig-placeholder" href="${esc(url)}" target="_blank" rel="noopener">
+        <div class="ig-img">${icon}</div>
+        <p><span></span><span></span></p>
+        <span class="ig-more">${HE ? "לצפייה בפוסט ←" : "View this post →"}</span></a>`).join("");
+    }, 9000);
+    return;
+  }
   try {
     const data = await (await fetch(instagram_feed)).json();
     const posts = (Array.isArray(data) ? data : data.posts || []).slice(0, 8);
