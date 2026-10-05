@@ -816,3 +816,10 @@ html[dir="rtl"] .band .big small { letter-spacing: 0; font-family: var(--hebrew)
 .ig-embeds .instagram-media { margin: 0 !important; min-width: 0 !important; width: 100% !important; max-width: 100% !important; border-radius: var(--radius) !important; }
 .ig-embeds blockquote.instagram-media { background: var(--paper); padding: 20px; text-align: center; }
 .ig-embeds blockquote.instagram-media a { color: var(--navy); font-weight: 600; }
+
+/* Instagram posts copied from the public account */
+.ig-real .ig-img img { filter: contrast(1.04); }
+.ig-cap { padding: 16px 18px 8px; display: grid; gap: 2px; flex: 1; font-family: var(--hebrew); text-align: right; }
+.ig-cap b { font-size: 1.15rem; color: var(--navy); line-height: 1.35; }
+.ig-cap span { font-size: .95rem; color: var(--muted); line-height: 1.45; }
+.ig-real .ig-more { text-align: start; }

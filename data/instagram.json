@@ -1,14 +1,74 @@
 [
-  "https://www.instagram.com/p/DdsY_c8nG5C/",
-  "https://www.instagram.com/p/DdZWSW3HDn3/",
-  "https://www.instagram.com/p/DdScGFinHJp/",
-  "https://www.instagram.com/p/DdF57K9nG5z/",
-  "https://www.instagram.com/p/Dc_NHygnDK2/",
-  "https://www.instagram.com/p/Dc1tvmGj6Qm/",
-  "https://www.instagram.com/p/DctrFgJmhyX/",
-  "https://www.instagram.com/p/Dci6rU5nBFu/",
-  "https://www.instagram.com/p/DcbcTRsHDst/",
-  "https://www.instagram.com/p/DcQrRNRnLbT/",
-  "https://www.instagram.com/p/DcI5EASHEPa/",
-  "https://www.instagram.com/p/Db_B1u6nBvf/"
+  {
+    "url": "https://www.instagram.com/p/DdsY_c8nG5C/",
+    "image": "images/ig/DdsY_c8nG5C.jpg",
+    "caption": "תשובה מאהבה (חלק שלישי)\nר׳ אלעזר בן ר׳ דוד פלעקלס\n1821",
+    "date": "September 24, 2026"
+  },
+  {
+    "url": "https://www.instagram.com/p/DdZWSW3HDn3/",
+    "image": "images/ig/DdZWSW3HDn3.jpg",
+    "caption": "תשובה מאהבה (חלק שני)\nר׳ אלעזר בן ר׳ דוד פלעקלס\n1815",
+    "date": "September 17, 2026"
+  },
+  {
+    "url": "https://www.instagram.com/p/DdScGFinHJp/",
+    "image": "images/ig/DdScGFinHJp.jpg",
+    "caption": "תשובה מאהבה (חלק ראשון)\nר׳ אלעזר בן ר׳ דוד פלעקלס \n1809",
+    "date": "September 14, 2026"
+  },
+  {
+    "url": "https://www.instagram.com/p/DdF57K9nG5z/",
+    "image": "images/ig/DdF57K9nG5z.jpg",
+    "caption": "מחזור מכל השנה\nקראקא\n1585",
+    "date": "September 9, 2026"
+  },
+  {
+    "url": "https://www.instagram.com/p/Dc_NHygnDK2/",
+    "image": "images/ig/Dc_NHygnDK2.jpg",
+    "caption": "מחזור מכל השנה מנהג פולין\n1804",
+    "date": "September 7, 2026"
+  },
+  {
+    "url": "https://www.instagram.com/p/Dc1tvmGj6Qm/",
+    "image": "images/ig/Dc1tvmGj6Qm.jpg",
+    "caption": "מנחת חינוך\nר׳ יוסף באב״ד\nלעמבערג\n1889",
+    "date": "September 3, 2026"
+  },
+  {
+    "url": "https://www.instagram.com/p/DctrFgJmhyX/",
+    "image": "images/ig/DctrFgJmhyX.jpg",
+    "caption": "קו ונקי ולשד השמן\nר׳ צבי בן ר׳ יצחק ליפניק\n1826",
+    "date": "August 31, 2026"
+  },
+  {
+    "url": "https://www.instagram.com/p/Dci6rU5nBFu/",
+    "image": "images/ig/Dci6rU5nBFu.jpg",
+    "caption": "תוספת יום טוב\nר׳ יום טוב ליפמן בן ר׳ נתן העלר\n1644",
+    "date": "August 27, 2026"
+  },
+  {
+    "url": "https://www.instagram.com/p/DcbcTRsHDst/",
+    "image": "images/ig/DcbcTRsHDst.jpg",
+    "caption": "לחם משנה\nרי משה בן ר׳ נח יצחק ליפשיץ\n1637",
+    "date": "August 24, 2026"
+  },
+  {
+    "url": "https://www.instagram.com/p/DcQrRNRnLbT/",
+    "image": "images/ig/DcQrRNRnLbT.jpg",
+    "caption": "עת קץ\nר׳ יצחק חיים מהחזנים כהן\nאמשטרדם\n1710",
+    "date": "August 20, 2026"
+  },
+  {
+    "url": "https://www.instagram.com/p/DcI5EASHEPa/",
+    "image": "images/ig/DcI5EASHEPa.jpg",
+    "caption": "עץ הדעת\nר׳ שמשון בן ר׳ יהושע משה מורפורגו\nויניציאה\n1704",
+    "date": "August 17, 2026"
+  },
+  {
+    "url": "https://www.instagram.com/p/Db_B1u6nBvf/",
+    "image": "images/ig/Db_B1u6nBvf.jpg",
+    "caption": "כתר תורה\nר׳ אברהם גוטענפלאן\n1944",
+    "date": "August 13, 2026"
+  }
 ]
