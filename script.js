@@ -166,7 +166,7 @@ document.addEventListener("keydown", (e) => {
 
 // ---------- Memories ----------
 const memList = document.getElementById("memories-list");
-if (memList) fetch("data/memories.json")
+if (memList) fetch("data/memories.json", { cache: "no-cache" })
   .then((r) => (r.ok ? r.json() : []))
   .catch(() => [])
   .then((items) => {
@@ -177,7 +177,7 @@ if (memList) fetch("data/memories.json")
   });
 
 // ---------- Site details: yahrzeit, board, EIN (from data/site.json) ----------
-fetch("data/site.json").then((r) => (r.ok ? r.json() : {})).catch(() => ({})).then(async (site) => {
+fetch("data/site.json", { cache: "no-cache" }).then((r) => (r.ok ? r.json() : {})).catch(() => ({})).then(async (site) => {
   const ein = document.getElementById("ein");
   if (ein && site.ein) { ein.querySelector("span").textContent = site.ein; ein.hidden = false; }
 
@@ -212,7 +212,7 @@ fetch("data/site.json").then((r) => (r.ok ? r.json() : {})).catch(() => ({})).th
 
 // ---------- Instagram feed (Behold.so JSON feed URL in data/site.json → "instagram_feed") ----------
 const igEl = document.getElementById("ig-feed");
-if (igEl) fetch("data/site.json").then((r) => (r.ok ? r.json() : {})).catch(() => ({})).then(async ({ instagram_feed }) => {
+if (igEl) fetch("data/site.json", { cache: "no-cache" }).then((r) => (r.ok ? r.json() : {})).catch(() => ({})).then(async ({ instagram_feed }) => {
   const placeholders = () => {
     const icon = '<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>';
     igEl.innerHTML = Array.from({ length: 4 }, () => `<a class="ig-post ig-placeholder" href="https://www.instagram.com/shalom_jacob_memorial_library" target="_blank" rel="noopener">
@@ -223,7 +223,7 @@ if (igEl) fetch("data/site.json").then((r) => (r.ok ? r.json() : {})).catch(() =
   };
   if (!instagram_feed) {
     // Posts copied from the public account (python3 fetch_instagram.py) — data/instagram.json, newest first
-    const posts = await fetch("data/instagram.json").then((r) => (r.ok ? r.json() : [])).catch(() => []);
+    const posts = await fetch("data/instagram.json", { cache: "no-cache" }).then((r) => (r.ok ? r.json() : [])).catch(() => []);
     if (!posts.length || typeof posts[0] !== "object") return placeholders();
     const n = document.body.dataset.page === "home" ? 4 : 8;
     igEl.innerHTML = posts.slice(0, n).map((p) => {
@@ -256,7 +256,7 @@ if (igEl) fetch("data/site.json").then((r) => (r.ok ? r.json() : {})).catch(() =
 // ---------- Shiurim & hespedim (from data/shiurim.json) ----------
 const shiurimEl = document.getElementById("shiurim-list");
 const ytId = (u) => (String(u).match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/) || [, /^[\w-]{11}$/.test(u) ? u : ""])[1];
-if (shiurimEl) fetch("data/shiurim.json").then((r) => (r.ok ? r.json() : [])).catch(() => []).then((items) => {
+if (shiurimEl) fetch("data/shiurim.json", { cache: "no-cache" }).then((r) => (r.ok ? r.json() : [])).catch(() => []).then((items) => {
   if (!items.length) {
     shiurimEl.innerHTML = Array.from({ length: 3 }, () => `<article class="shiur shiur-placeholder" aria-hidden="true">
       <div class="yt"><span class="play"></span></div>
