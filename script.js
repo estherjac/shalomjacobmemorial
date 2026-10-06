@@ -9,7 +9,7 @@ const DONATE_URL = "";
 const HE = document.documentElement.lang === "he";
 const T = HE
   ? {
-      count: (n, total) => (n === total ? "יותר מ-25 ספרים שיצאו לאור ע״י הרב שלום זצ״ל" : `מציג ${n} מתוך ${total}`),
+      count: (n, total) => (n === total ? `${total} ספרים שיצאו לאור ע״י הרב שלום זצ״ל` : `מציג ${n} מתוך ${total}`),
       none: (q) => `לא נמצאו ספרים עבור ״${q}״`,
       gallery: "ספרים מאוסף הרב שלום",
       fill: "נא למלא את השדות המסומנים.",
@@ -19,7 +19,7 @@ const T = HE
       haskamah: (rav) => `הסכמת ${rav}`,
     }
   : {
-      count: (n, total) => (n === total ? `More than 25 Sefarim published by Rav Shalom <span class="he">זצ״ל</span>` : `Showing ${n} of ${total}`),
+      count: (n, total) => (n === total ? `${total} Sefarim published by Rav Shalom <span class="he">זצ״ל</span>` : `Showing ${n} of ${total}`),
       none: (q) => `No Sefarim match “${q}”.`,
       gallery: "Sefarim in Rav Shalom's collection",
       fill: "Please fill in the highlighted fields.",
