@@ -115,16 +115,6 @@ window.SEFARIM = [
  },
  {
   "id": 12,
-  "en": "Mikraos Gedolos Sefer Yehoshua — Kli Yakar",
-  "title": "מקראות גדולות ספר יהושע ע״פ כלי יקר",
-  "author": "רבי שמואל לאנייאדו זצ״ל",
-  "subject": "פירוש על ספר יהושע",
-  "first": "ש״ע",
-  "republished": "תש״ע",
-  "category": "tanach"
- },
- {
-  "id": 13,
   "en": "Beis HaYayin",
   "title": "בית היין",
   "author": "רבי צבי הירש גראדזענסקי זצ״ל",
@@ -134,7 +124,7 @@ window.SEFARIM = [
   "category": "gemara"
  },
  {
-  "id": 14,
+  "id": 13,
   "en": "Meir HaShachar",
   "title": "מאיר השחר",
   "author": "רבי מאיר ב״ר אליעזר ליברמאן סג״ל זצ״ל",
@@ -144,7 +134,7 @@ window.SEFARIM = [
   "category": "gemara"
  },
  {
-  "id": 15,
+  "id": 14,
   "en": "Kiryas Chana",
   "title": "קרית חנה",
   "author": "רבי אלחנן חפץ זצ״ל",
@@ -154,7 +144,7 @@ window.SEFARIM = [
   "category": "mishnah"
  },
  {
-  "id": 16,
+  "id": 15,
   "en": "Siman Chaf-Daled",
   "title": "סימן כד",
   "author": "רבי צבי הירש שלעז זצ״ל",
@@ -164,7 +154,7 @@ window.SEFARIM = [
   "category": "tanach"
  },
  {
-  "id": 17,
+  "id": 16,
   "en": "Haggadah Shel Pesach — Nagid U'Nafik",
   "title": "הגדה של פסח ע״פ נגיד ונפיק",
   "author": "רבי בנימין גיטעלסאהן זצ״ל",
@@ -175,27 +165,7 @@ window.SEFARIM = [
   "category": "moadim"
  },
  {
-  "id": 18,
-  "en": "Ohr HaNe'erav — Volume I",
-  "title": "אור הנערב",
-  "author": "רבי אברהם ארי׳ ליב כהנא זצ״ל",
-  "subject": "חלק ראשון — מס׳ ברכות וס׳ מועד",
-  "first": "תקפ״ד",
-  "republished": "תשע״ה",
-  "category": "gemara"
- },
- {
-  "id": 19,
-  "en": "Ohr HaNe'erav — Volume II",
-  "title": "אור הנערב",
-  "author": "רבי אברהם ארי׳ ליב כהנא זצ״ל",
-  "subject": "חלק שני — נשים נזיקין קדשים",
-  "first": "תקפ״ד",
-  "republished": "תשע״ה",
-  "category": "gemara"
- },
- {
-  "id": 20,
+  "id": 17,
   "en": "Moadei Tzvi — Volume I",
   "title": "מועדי צבי",
   "author": "רבי צבי הירש גראדזענסקי זצ״ל",
@@ -206,7 +176,7 @@ window.SEFARIM = [
   "category": "moadim"
  },
  {
-  "id": 21,
+  "id": 18,
   "en": "Minchas Nosson",
   "title": "מנחת נתן",
   "author": "רבי נתן שטערינבורג זצ״ל",
@@ -217,7 +187,7 @@ window.SEFARIM = [
   "category": "tanach"
  },
  {
-  "id": 22,
+  "id": 19,
   "en": "Biurim Kabdu Hashem — Volume I",
   "title": "באורים כבדו ה׳",
   "author": "רבי ישעי׳ מנחם זצ״ל",
@@ -228,7 +198,7 @@ window.SEFARIM = [
   "category": "tanach"
  },
  {
-  "id": 23,
+  "id": 20,
   "en": "Mateh Menashe",
   "title": "מטה מנשה",
   "author": "רבי מנשה גראסבערג זצ״ל",
@@ -239,7 +209,7 @@ window.SEFARIM = [
   "category": "gemara"
  },
  {
-  "id": 24,
+  "id": 21,
   "en": "Zichron Yaakov",
   "title": "זכרון יעקב",
   "author": "רבי יעקב וואליער זצ״ל",
@@ -250,7 +220,7 @@ window.SEFARIM = [
   "category": "mishnah"
  },
  {
-  "id": 25,
+  "id": 22,
   "en": "Smichas Kohen",
   "title": "סמיכת כהן",
   "author": "רבי אליעזר כ״ץ זצ״ל",
@@ -261,7 +231,7 @@ window.SEFARIM = [
   "category": "mishnah"
  },
  {
-  "id": 26,
+  "id": 23,
   "en": "Degel Menashe",
   "title": "דגל מנשה",
   "author": "רבי מנשה גראסבערג זצ״ל",
@@ -272,7 +242,7 @@ window.SEFARIM = [
   "category": "tanach"
  },
  {
-  "id": 27,
+  "id": 24,
   "en": "Derishas HaZe'ev",
   "title": "דרישת הזאב",
   "author": "רבי זאב וואלף זצ״ל",
