@@ -24,7 +24,6 @@
   {"id": 23, "en": "Mateh Menashe", "title": "מטה מנשה", "author": "רבי מנשה גראסבערג זצ״ל", "subject": "קידוש החודש", "first": "תרנ״ד", "republished": "תשע״ח", "cover": "cover-11.jpg", "category": "gemara"},
   {"id": 24, "en": "Zichron Yaakov", "title": "זכרון יעקב", "author": "רבי יעקב וואליער זצ״ל", "subject": "חידושים וביאורים על ששה סדרי משנה", "first": "", "republished": "תשע״ט", "cover": "cover-12.jpg", "category": "mishnah"},
   {"id": 25, "en": "Smichas Kohen", "title": "סמיכת כהן", "author": "רבי אליעזר כ״ץ זצ״ל", "subject": "מסכת אבות", "first": "תקס״ד", "republished": "תש״פ", "cover": "cover-05.jpg", "category": "mishnah"},
-  {"id": 26, "en": "Megilas Sefer / Segulas Shmuel", "title": "מגילת ספר / סגולת שמואל", "author": "רבי דוד אופנהיים / רבי שמואל סג״ל ליכטענשטאט זצ״ל", "subject": "מסכת מגילה", "first": "", "republished": "תשפ״ב", "category": "gemara"},
-  {"id": 27, "en": "Degel Menashe", "title": "דגל מנשה", "author": "רבי מנשה גראסבערג זצ״ל", "subject": "ישוב ארץ ישראל, מקום המקדש, ועוד", "first": "תרנ״ב", "republished": "תשפ״ב", "cover": "cover-06.jpg", "category": "tanach"},
-  {"id": 28, "en": "Derishas HaZe'ev", "title": "דרישת הזאב", "author": "רבי זאב וואלף זצ״ל", "subject": "ששה סדרי משנה", "first": "תקע״ו", "republished": "תשפ״ב", "cover": "cover-02.jpg", "category": "mishnah"}
+  {"id": 26, "en": "Degel Menashe", "title": "דגל מנשה", "author": "רבי מנשה גראסבערג זצ״ל", "subject": "ישוב ארץ ישראל, מקום המקדש, ועוד", "first": "תרנ״ב", "republished": "תשפ״ב", "cover": "cover-06.jpg", "category": "tanach"},
+  {"id": 27, "en": "Derishas HaZe'ev", "title": "דרישת הזאב", "author": "רבי זאב וואלף זצ״ל", "subject": "ששה סדרי משנה", "first": "תקע״ו", "republished": "תשפ״ב", "cover": "cover-02.jpg", "category": "mishnah"}
 ]

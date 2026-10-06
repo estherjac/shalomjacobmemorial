@@ -262,16 +262,6 @@ window.SEFARIM = [
  },
  {
   "id": 26,
-  "en": "Megilas Sefer / Segulas Shmuel",
-  "title": "מגילת ספר / סגולת שמואל",
-  "author": "רבי דוד אופנהיים / רבי שמואל סג״ל ליכטענשטאט זצ״ל",
-  "subject": "מסכת מגילה",
-  "first": "",
-  "republished": "תשפ״ב",
-  "category": "gemara"
- },
- {
-  "id": 27,
   "en": "Degel Menashe",
   "title": "דגל מנשה",
   "author": "רבי מנשה גראסבערג זצ״ל",
@@ -282,7 +272,7 @@ window.SEFARIM = [
   "category": "tanach"
  },
  {
-  "id": 28,
+  "id": 27,
   "en": "Derishas HaZe'ev",
   "title": "דרישת הזאב",
   "author": "רבי זאב וואלף זצ״ל",
