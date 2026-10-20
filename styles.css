@@ -74,7 +74,7 @@ p { margin: 0 0 1.1em; }
   border-bottom: 1px solid var(--line);
 }
 .nav { display: flex; align-items: center; justify-content: space-between; height: 76px; gap: 24px; }
-.brand img { height: 54px; width: auto; mix-blend-mode: multiply; }
+.brand img { height: 54px; width: auto; }
 .nav-links { display: flex; align-items: center; gap: 26px; list-style: none; margin: 0; padding: 0; }
 .nav-links a:not(.btn) {
   text-decoration: none; color: var(--ink); font-size: .95rem; font-weight: 500;
@@ -342,7 +342,7 @@ table.sefarim { width: 100%; border-collapse: collapse; direction: rtl; font-fam
 /* ---------- Footer ---------- */
 footer { background: var(--navy-deep); color: rgba(255,255,255,.7); padding: 70px 0 30px; font-size: .95rem; }
 .foot { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; padding-bottom: 50px; border-bottom: 1px solid rgba(255,255,255,.1); }
-.foot img { height: 70px; width: auto; border-radius: 8px; margin-bottom: 18px; }
+.foot img { height: 70px; width: auto; margin-bottom: 18px; }
 .foot h4 { color: var(--gold-soft); font: 600 .78rem/1 var(--body); letter-spacing: .2em; text-transform: uppercase; margin: 0 0 18px; }
 .foot ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
 footer a { color: rgba(255,255,255,.75); text-decoration: none; }

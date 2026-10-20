@@ -168,7 +168,7 @@ HEAD = """<!doctype html>
 <body>
 <header class="site-header">
   <nav class="wrap nav" aria-label="Main">
-    <a href="../index.html" class="brand"><img src="../images/logo.jpg" alt="The Shalom Jacob Memorial Institute"></a>
+    <a href="../index.html" class="brand"><img src="../images/logo.png" alt="The Shalom Jacob Memorial Institute"></a>
     <div style="display:flex;gap:10px;align-items:center">
       <a href="../sefarim.html" class="btn btn-outline hide-phone">All Sefarim</a>
       <a href="../donate.html" class="btn btn-gold">Donate</a>
