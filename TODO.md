@@ -13,7 +13,7 @@ Fill these in, then run `python3 build.py` and push (see `data/README.md`).
 ## Before announcing the site
 - [ ] **Donation link** (Donorbox, Charidy, PayPal…) → `DONATE_URL` in `script.js`
 - [ ] **Point shalomjacobmemorial.com** at the new site (GitHub Pages + DNS)
-- [ ] **Proofread**: Hebrew pages, the 28-sefarim table, and the dedication amounts ($180 / $1,800 / $5,000 / $18,000 in `src/en.html` and `src/he.html`)
+- [ ] **Proofread**: Hebrew pages, the Sefarim list
 - [ ] **Click the FormSubmit activation email** sent to shalomjacobmemorial@gmail.com after the first form submission
 
 ## Nice to have
